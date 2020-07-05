@@ -1,8 +1,6 @@
 # Nvim Nemo 1
 
-![Image of configuration]
-(ConfigPic.png)
-16pt Hack font, Nord colorscheme
+![configuration="16pt Hack font, Nord colorscheme, i3wm"](ConfigPic.png)
 
 ### Install the entire configuration with 
 
@@ -18,7 +16,7 @@ If you already have an nvim configuration in ```~/.config/nvim```, the ```nvim``
 * [Ranger](https://github.com/ranger/ranger) for file exploring with highly customizable vim keybindings
 * [Fzf](https://github.com/junegunn/fzf) for fuzzy searching
 * Tim Pope's [vim-fugitive](https://github.com/tpope/vim-fugitive) for git integration and [vim-surround](https://github.com/tpope/vim-surround)
-*[Vim-which-key](https://github.com/liuchengxu/vim-which-key) for Spacemacs-style leader popup 
+* [Vim-which-key](https://github.com/liuchengxu/vim-which-key) for Spacemacs-style leader popup 
 * You can get language support via [coc.nvim](https://github.com/neoclide/coc.nvim), follow the set-up instructions on their github page
 
 I strongly recommend that you install a patched font, like the [Hack font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack).
