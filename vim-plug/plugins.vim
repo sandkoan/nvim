@@ -24,7 +24,6 @@ Plug 'wlangstroth/vim-racket'
 Plug 'junegunn/rainbow_parentheses.vim'
 
 Plug 'arcticicestudio/nord-vim'
-Plug 'morhetz/gruvbox/'
 Plug 'mhinz/vim-startify'
 
 Plug 'voldikss/vim-floaterm'

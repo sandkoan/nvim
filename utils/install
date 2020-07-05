@@ -15,6 +15,13 @@ echo "set show_hidden true" >> ~/.config/ranger/rc.conf
 
 # Install neovim
 sudo apt install neovim
+
+directory="~/.config/nvim"
+if [ -d "$directory" ]
+then
+    mv "${directory}" "${directory}_old"
+fi
+
 git clone https://github.com/sandkoan/nvim.git ~/.config
 
 # Clipbaord support
