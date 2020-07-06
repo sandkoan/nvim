@@ -4,7 +4,7 @@
 
 ### Install the entire configuration with 
 
-```bash <(curl -s https://raw.githubusercontent.com/sandkoan/nvim/master/utils/install)```
+```bash <(curl -s https://raw.githubusercontent.com/sandkoan/nvim/master/utils/install.sh)```
 
 **Note: This only works on Ubuntu**
 

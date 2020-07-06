@@ -22,13 +22,13 @@ then
     mv "${directory}" "${directory}_old"
 fi
 
-git clone https://github.com/sandkoan/nvim.git ~/.config
+git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
 
 # Clipbaord support
 sudo apt install xsel
 
 # Install hack font, needs to be added to terminal config
-sudo apt install fonts-hack-ttf
+# sudo apt install fonts-hack-ttf
 
 # Node for COC
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
