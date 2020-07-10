@@ -3,11 +3,14 @@ syntax on
 filetype on
 filetype indent on
 filetype plugin on
+" Autocompletion
+set omnifunc=syntaxcomplete#Complete
 
 " General/Aesthetic
 set nocompatible
 set cursorline
 set lazyredraw
+set path+=**
 set wildmenu
 set showmatch
 set nowrap

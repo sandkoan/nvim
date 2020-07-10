@@ -1,0 +1,129 @@
+" ‹‹Statusline››
+
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{StatuslineMode()}
+set statusline+=%{StatuslineGit()}
+set statusline+=%#LineNr#
+set statusline+=\ 
+set statusline+=\%f
+set statusline+=%m
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=%y
+set statusline+=\ 
+set statusline+=%P
+set statusline+=\ 
+set statusline+=☰
+set statusline+=\ 
+set statusline+=%l
+set statusline+=/
+set statusline+=%L
+set statusline+=\ 
+set statusline+=ln 
+set statusline+=\ 
+set statusline+=: 
+set statusline+=\ 
+set statusline+=%c
+set statusline+=\ 
+
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+function! StatuslineMode()
+  let l:mode=mode()
+  if l:mode==#"n"
+    return "NORMAL"
+  elseif l:mode==#"v"
+    return "VISUAL"
+  elseif l:mode==#"V"
+    return "LINE"  
+  elseif l:mode==#"x22"
+    return "BLOCK"  
+  elseif l:mode==#"i"
+    return "INSERT"
+  elseif l:mode==#"R"
+    return "REPLACE"
+  elseif l:mode==?"s"
+    return "SELECT"
+  elseif l:mode==#"t"
+    return "TERMINAL"
+  elseif l:mode==#"c"
+    return "COMMAND"
+  elseif l:mode==#"!"
+    return "SHELL"
+  endif
+endfunction
+
+
+" set laststatus=2
+
+" set statusline+=
+" set statusline+=‹
+" set statusline+=%m
+" set statusline+=%r
+" set statusline+=%f
+" set statusline+=›
+" set statusline+=›
+" set statusline+=%=
+" set statusline+=%y
+" set statusline+=\ 
+" set statusline+=‹
+" set statusline+=‹
+" set statusline+=%P
+" set statusline+=\ 
+" set statusline+=☰
+" set statusline+=\ 
+" set statusline+=%l
+" set statusline+=/
+" set statusline+=%L
+" set statusline+=\ 
+" set statusline+=ln 
+" set statusline+=\ 
+" set statusline+=: 
+" set statusline+=\ 
+" set statusline+=%c
+" set statusline+=›
+" set statusline+=›
+" set statusline+=\ 
+" set statusline+=‹
+" set statusline+=‹
+" set statusline+=%{winnr()}
+" set statusline+=:
+" set statusline+=%n
+" set statusline+=›
+" set statusline+=›
+
+" hi User2 ctermbg=lightgreen ctermfg=black guibg=lightgreen guifg=black
+" hi User1 ctermbg=grey ctermfg=lightgreen guibg=grey guifg=lightgreen
+" hi User9 ctermbg=black ctermfg=white guibg=black guifg=white
+
+
+
+" function! GitBranch()
+  " return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+" endfunction
+
+" function! StatuslineGit()
+  " let l:branchname = GitBranch()
+  " return strlen(l:branchname) > 0?''.l:branchname.'':''
+" endfunction
+
+" " set statusline+=%‹\                       " cut at start
+" " set statusline+=%2*[%n%H%M%R%W]%*\        " flags and buf no
+" " set statusline+=\ ‹‹
+" " set statusline+=%-40f\                    " path
+" " set statusline+=\ ››
+" " set statusline+=%=%1*%y%*%*\              " file type
+" " set statusline+=%10((%l,%c)%)\            " line and column
+" " set statusline+=%P                        " percentage of file
+
+" " hi User1 ctermbg=green ctermfg=red   guibg=green guifg=red
+" " hi User2 ctermbg=red   ctermfg=blue  guibg=red   guifg=blue
+" " hi User3 ctermbg=blue  ctermfg=green guibg=blue  guifg=green

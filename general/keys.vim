@@ -5,8 +5,11 @@ nnoremap gV `[v`]
 let mapleader=" "
 inoremap jk <Esc>
 inoremap kj <Esc>
+inoremap ii <Esc>
+nnoremap ;; :
 nnoremap <Leader>, :nohlsearch<CR>
-"
+nnoremap <Leader>u :UndotreeToggle<CR>
+
 " Remapping C-Space to autocompletion
 inoremap <C-Space> <C-P>
 inoremap <C-@> <C-Space>
@@ -51,4 +54,3 @@ autocmd filetype cpp nnoremap <F5> :w <bar> !g++ -ulimit -Wall -Wno-unused-resul
 autocmd filetype cpp nnoremap <F6> :w <bar> !g++ -ulimit -Wall -Wno-unused-result -std=c++11   -O2   % -o %:r && ./%:r <CR>
 autocmd filetype py nnoremap <F5> :w <bar> !python3 % <CR>
 autocmd filetype rkt nnoremap <F5> :w <bar> !racket % <CR>
-
