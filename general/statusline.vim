@@ -118,10 +118,7 @@ set statusline+=%{ChangeStatuslineColor()}               " Changing the statusli
 set statusline+=%0*\ %{toupper(g:currentmode[mode()])}   " Current mode
 set statusline+=%8*\ [%n]                                " buffernr
 set statusline+=%8*\ %{GitInfo()}                        " Git Branch name
-" set statusline+=%8*\ %<%F\ %{ReadOnly()}\ %m\ %w\        " File+path
-set statusline+=%8*\ %{ReadOnly()}                 " File+path
-set statusline+=%8*\ %f
-set statusline+=%8*%m
+set statusline+=%8*\ %<%F\ %{ReadOnly()}\ %m\ %w\        " File+path
 set statusline+=%=
 set statusline+=%#warningmsg#
 set statusline+=%{StatusDiagnostic()}                    " Coc errors
