@@ -3,12 +3,12 @@
 sudo apt update
 sudo apt -y upgrade
 
-# install git
+# Install git
 sudo apt install git
 
 # Ranger 
 sudo apt install ranger caca-utils highlight atool w3m poppler-utils mediainfo
-
+# Ranger devicons
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
 mkdir -p ~/.config/ranger
@@ -25,7 +25,7 @@ fi
 
 git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
 
-# Clipbaord support
+# Clipboard support
 sudo apt install xsel
 
 # Install hack font, needs to be added to terminal config
