@@ -9,9 +9,7 @@ sudo apt install ranger caca-utils highlight atool w3m poppler-utils mediainfo
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
 mkdir -p ~/.config/ranger
-touch ~/.config/ranger/rc.conf
-echo "default_linemode devicons" >> ~/.config/ranger/rc.conf
-echo "set show_hidden true" >> ~/.config/ranger/rc.conf
+echo -e "default_linemode devicons\nset show_hidden true" >> ~/.config/ranger/rc.conf
 
 # Install neovim
 sudo apt install neovim
