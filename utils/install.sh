@@ -3,6 +3,9 @@
 sudo apt update
 sudo apt -y upgrade
 
+# install git
+sudo apt install git
+
 # Ranger 
 sudo apt install ranger caca-utils highlight atool w3m poppler-utils mediainfo
 
