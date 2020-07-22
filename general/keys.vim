@@ -5,8 +5,7 @@ nnoremap gV `[v`]
 let mapleader=" "
 inoremap jk <Esc>
 inoremap kj <Esc>
-inoremap ii <Esc>
-nnoremap ;; :
+
 nnoremap <Leader>, :nohlsearch<CR>
 nnoremap <Leader>u :UndotreeToggle<CR>
 
