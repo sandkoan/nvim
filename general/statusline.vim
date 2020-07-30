@@ -97,6 +97,7 @@ function! StatuslineGit()
     return ' '.l:branchname
   else
     return ''
+  endif
 endfunction
 
 " Coc diagnostic info
