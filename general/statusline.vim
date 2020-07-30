@@ -9,7 +9,6 @@ set showtabline=2
 set tabline="%1T"
 
 " Statusline
-" https://github.com/Greduan/dotfiles/blob/76e16dd8a04501db29989824af512c453550591d/vim/after/plugin/statusline.vim
 
 let g:currentmode={
       \ 'n'  : 'N ',
