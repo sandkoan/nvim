@@ -7,12 +7,13 @@ sudo apt -y upgrade
 sudo apt install git
 
 # Ranger 
-sudo apt install ranger caca-utils highlight atool w3m poppler-utils mediainfo
-# Ranger devicons
-git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+sudo apt install ranger
 
 mkdir -p ~/.config/ranger
 echo -e "default_linemode devicons\nset show_hidden true" >> ~/.config/ranger/rc.conf
+
+# Ranger devicons
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
 # Install neovim
 sudo apt install neovim
@@ -27,9 +28,6 @@ git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
 
 # Clipboard support
 sudo apt install xsel
-
-# Install hack font, needs to be added to terminal config
-# sudo apt install fonts-hack-ttf
 
 # Node for COC
 curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
