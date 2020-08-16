@@ -15,8 +15,14 @@ If you already have an nvim configuration in ```~/.config/nvim```, the ```nvim``
 * Plugin manager is [vim-plug](https://github.com/junegunn/vim-plug)
 * [Ranger](https://github.com/ranger/ranger) for file exploring with highly customizable vim keybindings
 * [Fzf](https://github.com/junegunn/fzf) for fuzzy searching
-* Tim Pope's [vim-fugitive](https://github.com/tpope/vim-fugitive) for git integration and [vim-surround](https://github.com/tpope/vim-surround)
+* Tim Pope's [vim-fugitive](https://github.com/tpope/vim-fugitive) for git integration and [vim-surround](https://github.com/tpope/vim-surround) for surrounding things
 * [Vim-which-key](https://github.com/liuchengxu/vim-which-key) for Spacemacs-style leader popup 
 * You can get language support via [coc.nvim](https://github.com/neoclide/coc.nvim), follow the set-up instructions on their github page
+
+### Location
+
+* Settings are in general/settings and keybindings are in general/keys
+* Installed plugins can be found in vim-plug/plugins.vim
+* Configuration settings for installed plugins can be found in plug-config
 
 I strongly recommend that you install a patched font, like the [Hack font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack).
