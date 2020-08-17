@@ -10,8 +10,12 @@ set omnifunc=syntaxcomplete#Complete
 set nocompatible
 set cursorline
 set lazyredraw
+
+" Recursive searching for wildmenu
 set path+=**
 set wildmenu
+set wildmode=list:longest,full
+
 set showmatch
 set nowrap
 set mouse=a
@@ -37,8 +41,15 @@ set hlsearch
 set incsearch
 set ignorecase
 
+" Regex
+set magic
+
 set visualbell
 set hidden
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
 
 " Tabs
 set tabstop=4 softtabstop=4 shiftwidth=4
@@ -51,6 +62,10 @@ set foldlevelstart=10
 set foldnestmax=10
 set foldmethod=indent
 
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
 " set encoding=utf-8
 " set fileformat=unix
 
@@ -60,6 +75,10 @@ set scrolloff=8
 " Vertical line at 80 characters
 set colorcolumn=80 
 highlight ColorColumn ctermbg=NONE guibg=lightgrey
+
+" Differentiate whitespaces
+set list
+set listchars=tab:-\ ,trail:\ ,extends:#,nbsp:\
 
 let t:is_transparent = 0
 function! Toggle_transparent()

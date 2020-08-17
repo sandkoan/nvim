@@ -6,18 +6,29 @@ let mapleader=" "
 inoremap jk <Esc>
 inoremap kj <Esc>
 
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
 nnoremap <Leader>, :nohlsearch<CR>
 nnoremap <Leader>u :UndotreeToggle<CR>
 
 " Remapping C-Space to autocompletion
-inoremap <C-Space> <C-P>
 inoremap <C-@> <C-Space>
+inoremap <C-Space> <C-P>
 
 " Split Buffers
-nnoremap <Leader>h <C-w>h
-nnoremap <Leader>j <C-w>j
-nnoremap <Leader>k <C-w>k
-nnoremap <Leader>l <C-w>l
+" nnoremap <Leader>h <C-w>h
+" nnoremap <Leader>j <C-w>j
+" nnoremap <Leader>k <C-w>k
+" nnoremap <Leader>l <C-w>l
+
+nnoremap <Leader>h :bprevious<CR>
+nnoremap <Leader>l :bnext<CR>
+nnoremap <Leader>k :bfirst<CR>
+nnoremap <Leader>j :blast<CR>
+
+" Flying with buffers
+nnoremap <C-b> :ls<CR>:b<Space>
+
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>

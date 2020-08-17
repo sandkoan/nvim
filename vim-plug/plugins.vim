@@ -28,7 +28,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'mhinz/vim-startify'
 
 Plug 'unblevable/quick-scope'
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+" Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 Plug 'lilydjwg/colorizer'
 
 " Unnecessary
