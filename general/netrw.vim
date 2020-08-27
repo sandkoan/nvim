@@ -19,8 +19,8 @@ let g:netrw_altv = 1
 " type gh to toggle do file hiding
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * :Vexplore
-augroup END
+" augroup ProjectDrawer
+  " autocmd!
+  " autocmd VimEnter * :Vexplore
+" augroup END
 

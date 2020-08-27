@@ -12,3 +12,5 @@ call SourceDirectory('$HOME/.config/nvim/general')
 call SourceDirectory('$HOME/.config/nvim/my-scripts')
 
 colorscheme nord
+highlight Normal guibg=NONE ctermbg=NONE
+
