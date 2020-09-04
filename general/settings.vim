@@ -1,3 +1,9 @@
+" Settings
+" Nocompatibility
+set nocompatible
+set encoding=utf-8
+set fileformat=unix
+
 syntax on
 
 filetype on 
@@ -8,16 +14,8 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
 " General/Aesthetic
-set nocompatible
 set cursorline
 set lazyredraw
-
-" Recursive searching for wildmenu
-set path+=**
-set wildmenu
-set wildmode=list:longest,full
-
-set showmatch
 set nowrap
 set mouse=a
 set smartcase
@@ -26,7 +24,12 @@ set cmdheight=2
 set updatetime=50
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c 
-" set history=1000
+set history=10000
+
+" Recursive searching for wildmenu
+set path+=**
+set wildmenu
+set wildmode=list:longest,full
 
 "Undodir + Backups
 set undodir=~/.config/nvim/undodir
@@ -46,7 +49,6 @@ set ignorecase
 set magic
 
 set visualbell
-set hidden
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -68,15 +70,14 @@ augroup vimrc
 augroup END
 "}}}
 
+" Toggle pasting
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
-" set encoding=utf-8
-" set fileformat=unix
+set scrolloff=8 
 
 set termguicolors
-set scrolloff=8 
 
 " Vertical line at 80 characters
 set colorcolumn=80 
@@ -84,9 +85,19 @@ highlight ColorColumn ctermbg=NONE guibg=lightgrey
 
 " Differentiate whitespaces
 set list
-set listchars=tab:-\ ,trail:\ ,extends:#,nbsp:\
+set listchars=space:·,tab:›\ ,extends:›,precedes:‹,nbsp:·,trail:·
+" set listchars+=eol:↓
+highlight WhiteSpaceBol guifg=white
+" highlight WhiteSpaceMol guifg=grey
+" match WhiteSpaceMol / /
+2match WhiteSpaceBol /^ \+/
 
-" Toggle transparancy{{{
+set showmatch
+set matchtime=3
+map <M-m> %
+highlight MatchParen guifg=NONE guibg=NONE gui=underline cterm=underline
+
+" Toggle transparancy
 let t:is_transparent = 0
 function! Toggle_transparent()
     if t:is_transparent == 0
@@ -98,4 +109,3 @@ function! Toggle_transparent()
     endif
 endfunction
 nnoremap <C-t> : call Toggle_transparent()<CR>
-"}}}
