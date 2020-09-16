@@ -1,6 +1,6 @@
 # Nvim Nemo 1
 
-![configuration="16pt Hack font, Nord colorscheme, i3wm"](ConfigPic.png)
+![configuration="16pt JetBrainsMono font, Nord colorscheme, Qtile wm"](/assets/ConfigPic.png)
 
 ### Install the entire configuration with 
 

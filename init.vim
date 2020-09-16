@@ -17,7 +17,7 @@ colorscheme nord
 
 " Vertical line at 80 characters
 set colorcolumn=80 
-highlight ColorColumn ctermbg=NONE guibg=lightgrey
+" highlight ColorColumn ctermbg=NONE guibg=lightgrey
 
 " Differentiate whitespaces
 set list
