@@ -77,26 +77,6 @@ set showmode
 
 set scrolloff=8 
 
-set termguicolors
-
-" Vertical line at 80 characters
-set colorcolumn=80 
-highlight ColorColumn ctermbg=NONE guibg=lightgrey
-
-" Differentiate whitespaces
-set list
-set listchars=space:·,tab:›\ ,extends:›,precedes:‹,nbsp:·,trail:·
-" set listchars+=eol:↓
-highlight WhiteSpaceBol guifg=white
-" highlight WhiteSpaceMol guifg=grey
-" match WhiteSpaceMol / /
-2match WhiteSpaceBol /^ \+/
-
-set showmatch
-set matchtime=3
-map <M-m> %
-highlight MatchParen guifg=NONE guibg=NONE gui=underline cterm=underline
-
 " Toggle transparancy
 let t:is_transparent = 0
 function! Toggle_transparent()
