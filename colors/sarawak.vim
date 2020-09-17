@@ -105,8 +105,6 @@ highlight javaScriptBoolean guifg=#067d9e guibg=NONE
 highlight TabLine guifg=#ffffff guibg=#394f59 gui=NONE
 highlight TabLineFill gui=NONE guibg=#394f59
 highlight TabLineSel guifg=#16baa4 guibg=#394f59
-set tabline=%!MyTabLine()
-
 
 highlight VertSplit gui=NONE guifg=#394f59 guibg=NONE
 highlight Visual gui=NONE guibg=#394f59

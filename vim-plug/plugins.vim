@@ -22,7 +22,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 Plug 'wlangstroth/vim-racket'
-Plug 'junegunn/rainbow_parentheses.vim'
+" Plug 'junegunn/rainbow_parentheses.vim'
 
 Plug 'arcticicestudio/nord-vim'
 Plug 'mhinz/vim-startify'

@@ -15,10 +15,10 @@ let g:currentmode={
       \ 'no' : 'N·Operator Pending ',
       \ 'v'  : 'V ',
       \ 'V'  : 'V·Line ',
-      \ 'x22' : 'V·Block ',
+      \ '^V' : 'V·Block ',
       \ 's'  : 'Select ',
       \ 'S'  : 'S·Line ',
-      \ 'x19' : 'S·Block ',
+      \ '^S' : 'S·Block ',
       \ 'i'  : 'I ',
       \ 'R'  : 'R ',
       \ 'Rv' : 'V·Replace ',
@@ -31,7 +31,6 @@ let g:currentmode={
       \ '!'  : 'Shell ',
       \ 't'  : 'Terminal '
       \}
-
 
 highlight User1 cterm=None gui=None ctermfg=007 guifg=fgcolor
 highlight User2 cterm=None gui=None ctermfg=008 guifg=bgcolor

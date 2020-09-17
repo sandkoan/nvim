@@ -22,6 +22,8 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 nnoremap <Leader>, :nohlsearch<CR>
 nnoremap <Leader>u :UndotreeToggle<CR>
 
+nnoremap <Leader>f :Lex<CR>
+
 " Remapping C-Space to autocompletion
 inoremap <C-@> <C-Space>
 inoremap <C-Space> <C-P>

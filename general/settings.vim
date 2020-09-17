@@ -12,6 +12,15 @@ filetype plugin on
 
 " Autocompletion
 set omnifunc=syntaxcomplete#Complete
+set complete+=i
+
+" Indenting
+set cindent autoindent smartindent
+
+let lisp_rainbow = 1
+autocmd FileType lisp set nocindent | set lisp | let lisp_rainbow = 1
+autocmd FileType scheme set nocindent | set lisp | let lisp_rainbow = 1
+autocmd FileType rkt set nocindent | set lisp | let lisp_rainbow = 1
 
 " General/Aesthetic
 set cursorline
@@ -25,6 +34,10 @@ set updatetime=50
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c 
 set history=10000
+
+" Autoresize splits
+set winwidth=79
+set winheight=50
 
 " Recursive searching for wildmenu
 set path+=**
@@ -56,18 +69,18 @@ set whichwrap+=<,>,h,l
 
 " Tabs{{{
 set tabstop=4 softtabstop=4 shiftwidth=4
-set smarttab smartindent
-set expandtab
+set smarttab expandtab
 "}}}
 
 "Folding{{{
 set foldenable
 set foldlevelstart=20
 set foldnestmax=20
-augroup vimrc
-  au BufReadPre * setlocal foldmethod=indent
-  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-augroup END
+set foldmethod=syntax
+" augroup vimrc
+  " au BufReadPre * setlocal foldmethod=indent
+  " au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+" augroup END
 "}}}
 
 " Toggle pasting

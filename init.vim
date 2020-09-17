@@ -11,6 +11,7 @@ call SourceDirectory('$HOME/.config/nvim/plug-config')
 call SourceDirectory('$HOME/.config/nvim/general')
 call SourceDirectory('$HOME/.config/nvim/my-scripts')
 
+" Aesthetic
 set termguicolors
 
 colorscheme nord
