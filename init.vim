@@ -16,6 +16,9 @@ set termguicolors
 
 colorscheme nord
 
+" Conceal char
+set conceallevel=2
+
 " Vertical line at 80 characters
 set colorcolumn=80 
 " highlight ColorColumn ctermbg=NONE guibg=lightgrey
