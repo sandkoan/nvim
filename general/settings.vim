@@ -1,4 +1,5 @@
 " Settings
+
 " Nocompatibility
 set nocompatible
 set encoding=utf-8
@@ -10,17 +11,24 @@ filetype on
 filetype indent on 
 filetype plugin on
 
-" Autocompletion
-set omnifunc=syntaxcomplete#Complete
-set complete+=i
-
 " Indenting
 set cindent autoindent smartindent
 
-let lisp_rainbow = 1
-autocmd FileType lisp set nocindent | set lisp | let lisp_rainbow = 1
-autocmd FileType scheme set nocindent | set lisp | let lisp_rainbow = 1
-autocmd FileType rkt set nocindent | set lisp | let lisp_rainbow = 1
+" Autocompletion
+set dictionary=/usr/share/dict/words
+
+set omnifunc=syntaxcomplete#Complete
+set complete=.,w,b,u,t,i
+
+" Recursive searching for wildmenu
+set path+=.,**
+set suffixesadd=.&ft
+
+" Wildmenu
+set wildmenu
+set wildmode=list:longest,full
+
+autocmd BufReadPost *.rkt,*.rktl set filetype=lisp
 
 " General/Aesthetic
 set cursorline
@@ -35,14 +43,9 @@ set updatetime=50
 set shortmess+=c 
 set history=10000
 
-" Autoresize splits
-set winwidth=79
-set winheight=50
-
-" Recursive searching for wildmenu
-set path+=**
-set wildmenu
-set wildmode=list:longest,full
+" " Autoresize splits
+" set winwidth=79
+" set winheight=50
 
 "Undodir + Backups
 set undodir=~/.config/nvim/undodir
@@ -50,7 +53,7 @@ set undofile
 set nobackup
 set nowritebackup
 
-" Line numbers
+" Hybrid line numbers
 set number relativenumber
 
 " Searching
@@ -78,8 +81,8 @@ set foldlevelstart=20
 set foldnestmax=20
 set foldmethod=syntax
 " augroup vimrc
-  " au BufReadPre * setlocal foldmethod=indent
-  " au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+" au BufReadPre * setlocal foldmethod=indent
+" au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
 " augroup END
 "}}}
 
@@ -93,12 +96,12 @@ set scrolloff=8
 " Toggle transparancy
 let t:is_transparent = 0
 function! Toggle_transparent()
-    if t:is_transparent == 0
-        highlight Normal guibg=NONE ctermbg=NONE
-        let t:is_transparent = 1
-    else
-        set background=dark
-        let t:is_tranparent = 0
-    endif
+  if t:is_transparent == 0
+    highlight Normal guibg=NONE ctermbg=NONE
+    let t:is_transparent = 1
+  else
+    set background=dark
+    let t:is_tranparent = 0
+  endif
 endfunction
 nnoremap <C-t> : call Toggle_transparent()<CR>
