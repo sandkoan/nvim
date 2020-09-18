@@ -15,10 +15,8 @@ If you already have an nvim configuration in ```~/.config/nvim```, the ```nvim``
 ### Some of the installed plugins
 * Plugin manager is [vim-plug](https://github.com/junegunn/vim-plug)
 * [Ranger](https://github.com/ranger/ranger) for file exploring with highly customizable vim keybindings
-* [Fzf](https://github.com/junegunn/fzf) for fuzzy searching
 * Tim Pope's [vim-fugitive](https://github.com/tpope/vim-fugitive) for git integration and [vim-surround](https://github.com/tpope/vim-surround) for surrounding things
 * [Vim-which-key](https://github.com/liuchengxu/vim-which-key) for Spacemacs-style leader popup 
-* You can get language support via [coc.nvim](https://github.com/neoclide/coc.nvim), follow the set-up instructions on their github page
 
 ### Location
 * General settings are in [general/settings.vim](https://github.com/sandkoan/nvim/tree/master/general/settings.vim) 
