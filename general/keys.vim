@@ -1,5 +1,5 @@
 let mapleader="\<Space>"
-let localleader=","
+let maplocalleader=","
 
 nnoremap <Leader><CR> :so $MYVIMRC<CR>
 
@@ -25,6 +25,7 @@ nnoremap gV `[v`]
 " Insert new line in normal mode
 nnoremap [o o<Esc>
 nnoremap [O O<esc>
+
 " Vmap for maintain Visual Mode after shifting > and <
 vmap < <gv
 vmap > >gv
@@ -34,13 +35,27 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
 " Split a line into two at the cursor
-nnoremap <C-J> ciW<CR><Esc>:if match( @", "^\\s*$") < 0<Bar>exec "norm P-$diw+"<Bar>endif<CR>
+nnoremap <C-j> ciW<CR><Esc>:if match( @", "^\\s*$") < 0<Bar>exec "norm P-$diw+"<Bar>endif<CR>
 
 " Change to current directory
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Turn off highlighting after search
 nnoremap <Leader>, :nohl<CR>
+
+
+
+" Searching
+nnoremap <leader>f :find *
+nnoremap <leader>fs :sfind *
+nnoremap <leader>fv :vert sfind *
+nnoremap <leader>ft :tabfind *
+
+" Search under directly of current file
+nnoremap <leader>F :find <C-R>=expand('%:h').'/*'<CR>
+nnoremap <leader>FS :sfind <C-R>=expand('%:h').'/*'<CR>
+nnoremap <leader>FV :vert sfind <C-R>=expand('%:h').'/*'<CR>
+nnoremap <leader>FT :tabfind <C-R>=expand('%:h').'/*'<CR>
 
 " Remapping C-Space to autocompletion
 inoremap <C-@> <C-Space>
@@ -52,6 +67,9 @@ nnoremap <leader>ss :SaveSession<Space>
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
+" Tags
+nnoremap <leader>gt :tjump /
+
 " Buffers
 set hidden
 
@@ -59,24 +77,40 @@ nnoremap <Leader>bh :bprevious<CR>
 nnoremap <Leader>bl :bnext<CR>
 nnoremap <Leader>bk :bfirst<CR>
 nnoremap <Leader>bj :blast<CR>
+nnoremap <Leader>bd :bd<CR>
+
+" Empty buffer prompt in wildmenu
+set wildcharm=<C-z>
+nnoremap <leader>bp :buffer <C-z><S-Tab>
+nnoremap <leader>Bp :sbuffer <C-z><S-Tab>
 
 " Flying with buffers
-nnoremap <C-b> :ls<CR>:b<Space>
+nnoremap <Leader>bf :ls<CR>:b<Space>
+nnoremap <leader>bo :b#<CR>
 
+" Windows
 " Creating splits
-noremap <Leader>h :<C-u>split<CR>
-noremap <Leader>v :<C-u>vsplit<CR>
+noremap <Leader>ws :<C-u>split<CR>
+noremap <Leader>wv :<C-u>vsplit<CR>
 
 " Resizing splits
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
-nnoremap <Leader>+ :vertical resize +5<CR>
-nnoremap <Leader>- :vertical resize -5<CR>
+nnoremap <leader>wi :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
+nnoremap <Leader>w+ :vertical resize +5<CR>
+nnoremap <Leader>w- :vertical resize -5<CR>
+nnoremap <leader>w= <C-w>=
 
 " Navigating splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <leader>wh <C-w>h
+nnoremap <leader>wj <C-w>j
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wl <C-w>l
+
+" Moving splits
+nnoremap <leader>wr <C-w>r
+nnoremap <leader>wH <C-w><S-h>
+nnoremap <leader>wJ <C-w><S-j>
+nnoremap <leader>wK <C-w><S-k>
+nnoremap <leader>wL <C-w><S-l>
 
 " Tabs
 let notabs = 0
@@ -86,17 +120,19 @@ nnoremap <leader>tj :tabprev<CR>
 nnoremap <leader>tl :tablast<CR>
 nnoremap <leader>tt :tabedit<Space>
 nnoremap <leader>tn :tabnext<Space>
-nnoremap <leader>tm :tabm<Space>
+nnoremap <leader>tm :tabmove<Space>
 nnoremap <leader>td :tabclose<CR>
 
 " Switch tab positions with Alt + h/l
 nnoremap <silent> <A-h> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-l> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+" Same thing with Alt + arrow keys
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 nnoremap <silent> <F8> :let notabs=!notabs<Bar>:if notabs<Bar>:tabo<Bar>:else<Bar>:tab ball<Bar>:tabn<Bar>:endif<CR>
 cabbrev tabv tab sview +setlocal\ nomodifiable
 
+" Misc Functions and Keybindings
 " Toggle spellchecking
 function! ToggleSpellCheck()
   set spell!
@@ -127,4 +163,3 @@ augroup vimrc-remember-cursor-position
   autocmd!
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
-

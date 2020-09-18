@@ -1,6 +1,5 @@
 " Settings
 
-" Nocompatibility
 set nocompatible
 set encoding=utf-8
 set fileformat=unix
@@ -24,17 +23,24 @@ set complete=.,w,b,u,t,i
 " Wildmenu
 set wildmenu
 set wildmode=list:longest,full
-
-autocmd BufReadPost *.rkt,*.rktl set filetype=lisp
+" Wildmenu ignore vcs, and zipped files
+set wildignore=*.swp,*.bak
+set wildignore+=*.pyc,*.class,*.sln,*.Master,*.csproj,*.csproj.user,*.cache,*.dll,*.pdb,*.min.*
+set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
+set wildignore+=tags
+set wildignore+=*.tar.*
+" Wildmenu ignore case when completing
+set wildignorecase
 
 " General/Aesthetic
 set nowrap
 set mouse=a
 set cursorline
 set lazyredraw
-set cmdheight=2
-set updatetime=50
 set scrolloff=8 
+set cmdheight=2
+set visualbell
+set updatetime=50
 
 " System clipboard integration
 set clipboard=unnamedplus
@@ -56,16 +62,14 @@ set nowritebackup
 " Hybrid line numbers
 set number relativenumber
 
+" Regex
+set magic
+
 " Searching
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-
-" Regex
-set magic
-
-set visualbell
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -85,3 +89,5 @@ set foldmethod=syntax
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
+
+autocmd BufReadPost *.rkt,*.rktl set filetype=lisp
