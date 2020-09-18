@@ -14,7 +14,7 @@ call SourceDirectory('$HOME/.config/nvim/my-scripts')
 " Aesthetic
 set termguicolors
 
-colorscheme nord
+colorscheme one
 
 " Conceal char
 set conceallevel=2

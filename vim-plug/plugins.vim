@@ -25,6 +25,7 @@ Plug 'wlangstroth/vim-racket'
 " Plug 'junegunn/rainbow_parentheses.vim'
 
 Plug 'arcticicestudio/nord-vim'
+Plug 'rakr/vim-one'
 Plug 'mhinz/vim-startify'
 
 Plug 'unblevable/quick-scope'
