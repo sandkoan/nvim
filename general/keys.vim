@@ -46,6 +46,12 @@ nnoremap <Leader>, :nohl<CR>
 inoremap <C-@> <C-Space>
 inoremap <C-Space> <C-P>
 
+" Session management
+nnoremap <leader>so :OpenSession<Space>
+nnoremap <leader>ss :SaveSession<Space>
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sc :CloseSession<CR>
+
 " Buffers
 set hidden
 
