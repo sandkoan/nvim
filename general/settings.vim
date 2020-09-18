@@ -17,12 +17,9 @@ set cindent autoindent smartindent
 " Autocompletion
 set dictionary=/usr/share/dict/words
 
+set path=.,**
 set omnifunc=syntaxcomplete#Complete
 set complete=.,w,b,u,t,i
-
-" Recursive searching for wildmenu
-set path+=.,**
-set suffixesadd=.&ft
 
 " Wildmenu
 set wildmenu
@@ -31,14 +28,16 @@ set wildmode=list:longest,full
 autocmd BufReadPost *.rkt,*.rktl set filetype=lisp
 
 " General/Aesthetic
-set cursorline
-set lazyredraw
 set nowrap
 set mouse=a
-set clipboard=unnamedplus
+set cursorline
+set lazyredraw
 set cmdheight=2
 set updatetime=50
 set scrolloff=8 
+
+" System clipboard integration
+set clipboard=unnamedplus
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c 

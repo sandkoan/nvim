@@ -1,6 +1,6 @@
 # Nvim Nemo 1
 
-![configuration="16pt JetBrainsMono font, Nord colorscheme, Qtile wm"](/assets/ConfigPic.png)
+![configuration="16pt JetBrainsMono font, Nord colorscheme, Qtile wm"](/img/ConfigPic.png)
 
 ### Install the entire configuration with 
 
