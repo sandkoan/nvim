@@ -60,6 +60,9 @@ nnoremap <leader>FT :tabfind <C-R>=expand('%:h').'/*'<CR>
 " Remapping C-Space to autocompletion
 inoremap <C-@> <C-Space>
 inoremap <C-Space> <C-P>
+" Tab trhough completion pop up menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Session management
 nnoremap <leader>so :OpenSession<Space>

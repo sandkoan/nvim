@@ -16,19 +16,21 @@ set cindent autoindent smartindent
 " Autocompletion
 set dictionary=/usr/share/dict/words
 
-set path=.,**
 set omnifunc=syntaxcomplete#Complete
 set complete=.,w,b,u,t,i
+set path+=.,**
 
 " Wildmenu
 set wildmenu
 set wildmode=list:longest,full
+
 " Wildmenu ignore vcs, and zipped files
 set wildignore=*.swp,*.bak
 set wildignore+=*.pyc,*.class,*.sln,*.Master,*.csproj,*.csproj.user,*.cache,*.dll,*.pdb,*.min.*
 set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
 set wildignore+=tags
 set wildignore+=*.tar.*
+
 " Wildmenu ignore case when completing
 set wildignorecase
 
