@@ -43,9 +43,14 @@ nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 " Turn off highlighting after search
 nnoremap <Leader>, :nohl<CR>
 
+" Remapping C-Space to autocompletion
+inoremap <C-@> <C-Space>
+inoremap <C-Space> <C-P>
+" Tab trhough completion pop up menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-
-" Searching
+" File searching
 nnoremap <leader>f :find *
 nnoremap <leader>fs :sfind *
 nnoremap <leader>fv :vert sfind *
@@ -57,12 +62,10 @@ nnoremap <leader>FS :sfind <C-R>=expand('%:h').'/*'<CR>
 nnoremap <leader>FV :vert sfind <C-R>=expand('%:h').'/*'<CR>
 nnoremap <leader>FT :tabfind <C-R>=expand('%:h').'/*'<CR>
 
-" Remapping C-Space to autocompletion
-inoremap <C-@> <C-Space>
-inoremap <C-Space> <C-P>
-" Tab trhough completion pop up menu
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Empty buffer prompt in wildmenu
+set wildcharm=<C-z>
+nnoremap ,e :e **/*<C-z><S-Tab>
+nnoremap ,f :find **/*<C-z><S-Tab>
 
 " Session management
 nnoremap <leader>so :OpenSession<Space>
@@ -82,8 +85,6 @@ nnoremap <Leader>bk :bfirst<CR>
 nnoremap <Leader>bj :blast<CR>
 nnoremap <Leader>bd :bd<CR>
 
-" Empty buffer prompt in wildmenu
-set wildcharm=<C-z>
 nnoremap <leader>bp :buffer <C-z><S-Tab>
 nnoremap <leader>Bp :sbuffer <C-z><S-Tab>
 
