@@ -12,4 +12,4 @@ function! HelpInNewTab ()
     endif
 endfunction
 
-let g:help_in_tabs = 1
+let g:help_in_tabs = 0

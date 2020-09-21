@@ -47,26 +47,10 @@ nnoremap <Leader>, :nohl<CR>
 " Remapping C-Space to autocompletion
 inoremap <C-@> <C-Space>
 inoremap <C-Space> <C-P>
-" Tab trhough completion pop up menu
+
+" Tab through completion pop up menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" File searching
-nnoremap <leader>f :find *
-nnoremap <leader>fs :sfind *
-nnoremap <leader>fv :vert sfind *
-nnoremap <leader>ft :tabfind *
-
-" Search under directly of current file
-nnoremap <leader>F :find <C-R>=expand('%:h').'/*'<CR>
-nnoremap <leader>FS :sfind <C-R>=expand('%:h').'/*'<CR>
-nnoremap <leader>FV :vert sfind <C-R>=expand('%:h').'/*'<CR>
-nnoremap <leader>FT :tabfind <C-R>=expand('%:h').'/*'<CR>
-
-" Empty buffer prompt in wildmenu
-set wildcharm=<C-z>
-nnoremap ,e :e **/*<C-z><S-Tab>
-nnoremap ,f :find **/*<C-z><S-Tab>
 
 " Session management
 nnoremap <leader>so :OpenSession<Space>
@@ -87,10 +71,12 @@ nnoremap <Leader>bj :blast<CR>
 nnoremap <Leader>bd :bd<CR>
 
 nnoremap <leader>bp :buffer <C-z><S-Tab>
+
+" Scratch buffer
 nnoremap <leader>Bp :sbuffer <C-z><S-Tab>
 
 " Flying with buffers
-nnoremap <Leader>bf :ls<CR>:b<Space>
+nnoremap <C-b> :ls<CR>:b<Space>
 nnoremap <leader>bo :b#<CR>
 
 " Windows
@@ -173,4 +159,3 @@ function! GetColorUnderCursor()
     echo synIDattr(synIDtrans(synID(line("."), col("."), 1)), "fg")
 endfunction
 nnoremap <leader>cuc :call GetColorUnderCursor()<CR>
-
