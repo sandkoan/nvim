@@ -111,10 +111,10 @@ nnoremap <leader>wl <C-w>l
 
 " Moving splits
 nnoremap <leader>wr <C-w>r
-nnoremap <leader>wH <C-w><S-h>
-nnoremap <leader>wJ <C-w><S-j>
-nnoremap <leader>wK <C-w><S-k>
-nnoremap <leader>wL <C-w><S-l>
+nnoremap <leader>wH <C-w>H
+nnoremap <leader>wJ <C-w>J
+nnoremap <leader>wK <C-w>K
+nnoremap <leader>wL <C-w>K
 
 " Tabs
 let notabs = 0
@@ -167,3 +167,9 @@ augroup vimrc-remember-cursor-position
   autocmd!
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
+
+function! GetColorUnderCursor()
+    echo synIDattr(synIDtrans(synID(line("."), col("."), 1)), "fg")
+endfunction
+nnoremap <leader>cuc :call GetColorUnderCursor()<CR>
+
