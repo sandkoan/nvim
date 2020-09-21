@@ -37,8 +37,9 @@ vnoremap K :m '<-2<CR>gv=gv
 " Split a line into two at the cursor
 nnoremap <C-j> ciW<CR><Esc>:if match( @", "^\\s*$") < 0<Bar>exec "norm P-$diw+"<Bar>endif<CR>
 
-" Change to current directory
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+" 'cd' towards the directory in which the current file is edited
+" but only change the path for the current window
+nnoremap <leader>cd :lcd %:h<CR>
 
 " Turn off highlighting after search
 nnoremap <Leader>, :nohl<CR>
