@@ -91,5 +91,3 @@ set foldmethod=syntax
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
-
-autocmd BufReadPost *.rkt,*.rktl set filetype=lisp
