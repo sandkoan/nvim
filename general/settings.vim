@@ -72,7 +72,9 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-set inccommand=split
+if exists('&inccommand')
+  set inccommand=split
+endif
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
