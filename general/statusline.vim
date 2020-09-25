@@ -99,32 +99,18 @@ function! StatuslineGit()
   endif
 endfunction
 
-" Coc diagnostic info
-function! StatusDiagnostic() abort
-  let info = get(b:, 'coc_diagnostic_info', {})
-  if empty(info) | return '' | endif
-  let msgs = []
-  if get(info, 'error', 0)
-    call add(msgs, 'E' . info['error'])
-  endif
-  if get(info, 'warning', 0)
-    call add(msgs, 'W' . info['warning'])
-  endif
-  return join(msgs, ' '). ' ' . get(g:, 'coc_status', '')
-endfunction
 
 set laststatus=2
 set statusline=
 set statusline+=%{ChangeStatuslineColor()}               " Changing the statusline color
 set statusline+=%0*\ %{toupper(g:currentmode[mode()])}   " Current mode
 set statusline+=%8*\ [%n]                                " buffernr
-set statusline+=%8*\ %{StatuslineGit()}                        " Git Branch name
+set statusline+=%8*\ %{StatuslineGit()}                  " Git Branch name
 set statusline+=%8*\ %<%F\ %{ReadOnly()}\ %m\ %w\        " File+path
 set statusline+=%=
-set statusline+=%#warningmsg#
-set statusline+=%{StatusDiagnostic()}                    " Coc errors
+set statusline+=%#warningmsg#                            " Warning messages
 set statusline+=%*
 set statusline+=%9*\ %=                                  " Space
 set statusline+=%8*\ %y\                                 " FileType
 set statusline+=%8*\ %-3(%{FileSize()}%)                 " File size
-set statusline+=%0*\ %3p%%\ \ %l:\ %3c\                 " Rownumber/total (%)
+set statusline+=%0*\ %3p%%\ \ %l:\ %3c\                 " Rownumber, total (%)
