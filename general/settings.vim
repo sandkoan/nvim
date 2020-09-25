@@ -72,6 +72,9 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+if exists('&inccommand')
+  set inccommand=split
+endif
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
@@ -92,4 +95,9 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
-autocmd BufReadPost *.rkt,*.rktl set filetype=lisp
+if has('nvim-0.5.0')
+  augroup LuaHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
+  augroup END
+endif
