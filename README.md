@@ -8,7 +8,7 @@
 bash <(curl -s https://raw.githubusercontent.com/sandkoan/nvim/master/utils/install.sh)
 ```
 
-**Note: This only works on Ubuntu**
+**Note: This installation script only works on Ubuntu**
 
 If you already have an nvim configuration in ```~/.config/nvim```, the ```nvim``` folder will be renamed to ```nvim_old```.
 
