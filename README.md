@@ -24,4 +24,4 @@ If you already have an nvim configuration in ```~/.config/nvim```, the ```nvim``
 * Installed plugins can be found in [vim-plug/plugins.vim](https://github.com/sandkoan/nvim/tree/master/vim-plug)
 * Configuration settings for installed plugins can be found in [plug-config](https://github.com/sandkoan/nvim/tree/master/plug-config)
     * For example, to change file/directory shortcuts in startify, edit ```plug-config/start-screen.vim```
-I strongly recommend that you install a patched font, like the [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono).
+* I strongly recommend that you install a patched font, like the [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono).
