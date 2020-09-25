@@ -124,7 +124,7 @@ endfunction
 nnoremap <leader>qf :call QuickFilter()<CR>
 
 " Edit recent files
-nnoremap <leader>er :call EditRecentFiles()<CR>
+nnoremap <leader>rf :call EditRecentFiles()<CR>
 
 " Very powerful searching
 set wildcharm=<C-z>
