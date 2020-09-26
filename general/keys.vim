@@ -48,9 +48,26 @@ nnoremap <Leader>, :nohl<CR>
 inoremap <C-@> <C-Space>
 inoremap <C-Space> <C-P>
 
-" Tab through completion pop up menu
+" Tab trhough completion pop up menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" File searching
+nnoremap <leader>f :find *
+nnoremap <leader>fs :sfind *
+nnoremap <leader>fv :vert sfind *
+nnoremap <leader>ft :tabfind *
+
+" Search under directly of current file
+nnoremap <leader>F :find <C-R>=expand('%:h').'/*'<CR>
+nnoremap <leader>FS :sfind <C-R>=expand('%:h').'/*'<CR>
+nnoremap <leader>FV :vert sfind <C-R>=expand('%:h').'/*'<CR>
+nnoremap <leader>FT :tabfind <C-R>=expand('%:h').'/*'<CR>
+
+" Empty buffer prompt in wildmenu
+set wildcharm=<C-z>
+nnoremap ,e :e **/*<C-z><S-Tab>
+nnoremap ,f :find **/*<C-z><S-Tab>
 
 " Session management
 nnoremap <leader>so :OpenSession<Space>
@@ -71,8 +88,6 @@ nnoremap <Leader>bj :blast<CR>
 nnoremap <Leader>bd :bd<CR>
 
 nnoremap <leader>bp :buffer <C-z><S-Tab>
-
-" Scratch buffer
 nnoremap <leader>Bp :sbuffer <C-z><S-Tab>
 
 " Flying with buffers
@@ -123,36 +138,59 @@ nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 nnoremap <silent> <F8> :let notabs=!notabs<Bar>:if notabs<Bar>:tabo<Bar>:else<Bar>:tab ball<Bar>:tabn<Bar>:endif<CR>
 cabbrev tabv tab sview +setlocal\ nomodifiable
 
+" Emacs keybindings in Command Mode
+
+" start of line
+cnoremap <C-A>		<Home>
+" back one character
+cnoremap <C-B>		<Left>
+" delete character under cursor
+cnoremap <C-D>		<Del>
+" end of line
+cnoremap <C-E>		<End>
+" forward one character
+cnoremap <C-F>		<Right>
+" recall newer command-line
+cnoremap <C-N>		<Down>
+" recall previous (older) command-line
+cnoremap <C-P>		<Up>
+" back one word
+cnoremap <Esc><C-B>	<S-Left>
+" forward one word
+cnoremap <Esc><C-F>	<S-Right>
+
+
+
 " Misc Functions and Keybindings
 " Toggle spellchecking
 function! ToggleSpellCheck()
-  set spell!
-  if &spell
-    echo "Spellcheck ON"
-  else
-    echo "Spellcheck OFF"
-  endif
+    set spell!
+    if &spell
+        echo "Spellcheck ON"
+    else
+        echo "Spellcheck OFF"
+    endif
 endfunction
 nnoremap <silent> <Leader>S :call ToggleSpellCheck()<CR>
 
 " Toggle transparancy
 let t:is_transparent = 0
 function! Toggle_transparent()
-  if t:is_transparent == 0
-    highlight Normal guibg=NONE ctermbg=NONE
-    let t:is_transparent = 1
-  else
-    set background=dark
-    let t:is_tranparent = 0
-  endif
+    if t:is_transparent == 0
+        highlight Normal guibg=NONE ctermbg=NONE
+        let t:is_transparent = 1
+    else
+        set background=dark
+        let t:is_tranparent = 0
+    endif
 endfunction
 nnoremap <C-t> : call Toggle_transparent()<CR>
 
 command! FixWhitespace :%s/\s\+$//e
 
 augroup vimrc-remember-cursor-position
-  autocmd!
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+    autocmd!
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 augroup END
 
 function! GetColorUnderCursor()
