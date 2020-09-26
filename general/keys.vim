@@ -52,18 +52,6 @@ inoremap <C-Space> <C-P>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-" File searching
-nnoremap <leader>f :find *
-nnoremap <leader>fs :sfind *
-nnoremap <leader>fv :vert sfind *
-nnoremap <leader>ft :tabfind *
-
-" Search under directly of current file
-nnoremap <leader>F :find <C-R>=expand('%:h').'/*'<CR>
-nnoremap <leader>FS :sfind <C-R>=expand('%:h').'/*'<CR>
-nnoremap <leader>FV :vert sfind <C-R>=expand('%:h').'/*'<CR>
-nnoremap <leader>FT :tabfind <C-R>=expand('%:h').'/*'<CR>
-
 " Empty buffer prompt in wildmenu
 set wildcharm=<C-z>
 nnoremap ,e :e **/*<C-z><S-Tab>

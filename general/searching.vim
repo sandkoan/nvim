@@ -133,14 +133,4 @@ nnoremap <leader>er :e **/*<C-z><S-Tab>
 nnoremap <leader>fr :find **/*<C-z><S-Tab>
 
 " Search under directly of current file
-nnoremap <leader>fc :call FindLocalFile()
-
-" nnoremap <leader>F :find <C-R>=expand('%:h').'/*'<CR>
-" nnoremap <leader>FS :sfind <C-R>=expand('%:h').'/*'<CR>
-" nnoremap <leader>FV :vert sfind <C-R>=expand('%:h').'/*'<CR>
-" nnoremap <leader>FT :tabfind <C-R>=expand('%:h').'/*'<CR>
-
-" nnoremap <leader>f :find *
-" nnoremap <leader>fs :sfind *
-" nnoremap <leader>fv :vert sfind *
-" nnoremap <leader>ft :tabfind *
+nnoremap <leader>fc :call FindLocalFile()<CR>
