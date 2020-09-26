@@ -127,7 +127,6 @@ nnoremap <silent> <F8> :let notabs=!notabs<Bar>:if notabs<Bar>:tabo<Bar>:else<Ba
 cabbrev tabv tab sview +setlocal\ nomodifiable
 
 " Emacs keybindings in Command Mode
-
 " start of line
 cnoremap <C-A>		<Home>
 " back one character
@@ -146,8 +145,6 @@ cnoremap <C-P>		<Up>
 cnoremap <Esc><C-B>	<S-Left>
 " forward one word
 cnoremap <Esc><C-F>	<S-Right>
-
-
 
 " Misc Functions and Keybindings
 " Toggle spellchecking

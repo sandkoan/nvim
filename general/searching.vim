@@ -129,8 +129,8 @@ nnoremap <leader>rf :call EditRecentFiles()<CR>
 " Very powerful searching
 set wildcharm=<C-z>
 " Recursive
-nnoremap <leader>er :e **/*<C-z><S-Tab>
-nnoremap <leader>fr :find **/*<C-z><S-Tab>
+" nnoremap <leader>er :e **/*<C-z><S-Tab>
+" nnoremap <leader>fr :find **/*<C-z><S-Tab>
 
 " Search under directly of current file
-nnoremap <leader>fc :call FindLocalFile()<CR>
+nnoremap <leader>fl :call FindLocalFile()<CR>
