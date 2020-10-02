@@ -15,11 +15,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdcommenter'
 Plug 'mbbill/undotree'
 
-Plug 'octol/vim-cpp-enhanced-highlight'
-
-" Color schemes
-Plug 'arcticicestudio/nord-vim'
+" Color scheme
 Plug 'rakr/vim-one'
+" Start screen
 Plug 'mhinz/vim-startify'
 
 " Ranger integration
@@ -27,8 +25,11 @@ Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 " Colorize hex color codes
 Plug 'lilydjwg/colorizer'
 
-" Telescope
+" Nvim lsp
 if has('nvim-0.5')
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/completion-nvim'
+    Plug 'nvim-lua/diagnostic-nvim'
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-lua/telescope.nvim'
