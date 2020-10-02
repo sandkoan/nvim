@@ -83,7 +83,7 @@ fun! Finder(input, prompt) abort
 endf
 
 " Edit most recently used files
-function! EditRecentFiles()
+function! FindRecentFiles()
     let paths = Finder(v:oldfiles, 'Choose file')
     if !empty(paths)
         execute "args" join(map(paths, 'fnameescape(v:val)'))
@@ -124,7 +124,7 @@ endfunction
 nnoremap <leader>qf :call QuickFilter()<CR>
 
 " Edit recent files
-nnoremap <leader>rf :call EditRecentFiles()<CR>
+nnoremap <leader>fr :call FindRecentFiles()<CR>
 
 " Very powerful searching
 set wildcharm=<C-z>
@@ -133,4 +133,4 @@ set wildcharm=<C-z>
 " nnoremap <leader>fr :find **/*<C-z><S-Tab>
 
 " Search under directly of current file
-nnoremap <leader>f :call FindLocalFile()<CR>
+nnoremap <leader>ff :call FindLocalFile()<CR>
