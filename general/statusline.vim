@@ -99,6 +99,46 @@ function! StatuslineGit()
   endif
 endfunction
 
+" lua << END
+" local lsp_status = require('lsp-status')
+" lsp_status.register_progress()
+
+" local nvim_lsp = require('nvim_lsp')
+
+" -- Some arbitrary servers
+" nvim_lsp.clangd.setup({
+  " callbacks = lsp_status.extensions.clangd.setup(),
+  " init_options = {
+    " clangdFileStatus = true
+  " },
+  " on_attach = lsp_status.on_attach,
+  " capabilities = lsp_status.capabilities
+" })
+
+" nvim_lsp.pyls_ms.setup({
+  " callbacks = lsp_status.extensions.pyls_ms.setup(),
+  " settings = { python = { workspaceSymbols = { enabled = true }}},
+  " on_attach = lsp_status.on_attach,
+  " capabilities = lsp_status.capabilities
+" })
+
+" nvim_lsp.ghcide.setup({
+  " on_attach = lsp_status.on_attach,
+  " capabilities = lsp_status.capabilities
+" })
+" nvim_lsp.rust_analyzer.setup({
+  " on_attach = lsp_status.on_attach,
+  " capabilities = lsp_status.capabilities
+" })
+" END
+
+" " Lsp diagnostic info
+" function! LspStatus() abort
+  " if luaeval('#vim.lsp.buf_get_clients() > 0')
+    " return luaeval("require('lsp-status').status()")
+  " endif
+  " return ''
+" endfunction
 
 set laststatus=2
 set statusline=
@@ -113,4 +153,4 @@ set statusline+=%*
 set statusline+=%9*\ %=                                  " Space
 set statusline+=%8*\ %y\                                 " FileType
 set statusline+=%8*\ %-3(%{FileSize()}%)                 " File size
-set statusline+=%0*\ %3p%%\ \ %l:\ %3c\                 " Rownumber, total (%)
+set statusline+=%0*\%3p%%\ \ %l:\ %3c\                 " Rownumber, total (%)
