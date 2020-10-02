@@ -133,4 +133,4 @@ set wildcharm=<C-z>
 " nnoremap <leader>fr :find **/*<C-z><S-Tab>
 
 " Search under directly of current file
-nnoremap <leader>fl :call FindLocalFile()<CR>
+nnoremap <leader>f :call FindLocalFile()<CR>
