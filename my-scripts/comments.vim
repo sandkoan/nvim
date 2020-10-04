@@ -46,5 +46,5 @@ function! ToggleComment()
 endfunction
 
 
-nnoremap <leader><Space> :call ToggleComment()<cr>
-vnoremap <leader><Space> :call ToggleComment()<cr>
+nnoremap <leader>gcc :call ToggleComment()<cr>
+vnoremap <leader>gcc :call ToggleComment()<cr>

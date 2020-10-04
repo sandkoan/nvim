@@ -2,6 +2,7 @@ let mapleader="\<Space>"
 let maplocalleader=","
 
 nnoremap <Leader><CR> :so $MYVIMRC<CR>
+nnoremap <Leader>u :UndotreeToggle<CR>
 
 inoremap jk <Esc>
 inoremap kj <Esc>
@@ -146,39 +147,10 @@ cnoremap <Esc><C-B>	<S-Left>
 " forward one word
 cnoremap <Esc><C-F>	<S-Right>
 
-" Misc Functions and Keybindings
-" Toggle spellchecking
-function! ToggleSpellCheck()
-    set spell!
-    if &spell
-        echo "Spellcheck ON"
-    else
-        echo "Spellcheck OFF"
-    endif
-endfunction
-nnoremap <silent> <Leader>S :call ToggleSpellCheck()<CR>
+nnoremap <silent> <Leader>S :call misc#ToggleSpellCheck()<CR>
 
-" Toggle transparancy
-let t:is_transparent = 0
-function! Toggle_transparent()
-    if t:is_transparent == 0
-        highlight Normal guibg=NONE ctermbg=NONE
-        let t:is_transparent = 1
-    else
-        set background=dark
-        let t:is_tranparent = 0
-    endif
-endfunction
-nnoremap <C-t> : call Toggle_transparent()<CR>
+nnoremap <C-t> :call misc#Toggle_transparent()<CR>
+
+nnoremap <leader>cuc :call misc#GetColorUnderCursor()<CR>
 
 command! FixWhitespace :%s/\s\+$//e
-
-augroup vimrc-remember-cursor-position
-    autocmd!
-    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-augroup END
-
-function! GetColorUnderCursor()
-    echo synIDattr(synIDtrans(synID(line("."), col("."), 1)), "fg")
-endfunction
-nnoremap <leader>cuc :call GetColorUnderCursor()<CR>

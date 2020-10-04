@@ -12,8 +12,15 @@ call SourceDirectory('$HOME/.config/nvim/general')
 call SourceDirectory('$HOME/.config/nvim/my-scripts')
 
 " Aesthetic
-set termguicolors
 
+if has('nvim-0.5.0')
+  augroup LuaHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
+  augroup END
+endif
+
+set termguicolors
 colorscheme one
 
 " Conceal char

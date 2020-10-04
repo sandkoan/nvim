@@ -95,9 +95,15 @@ nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
 
-if has('nvim-0.5.0')
-  augroup LuaHighlight
+" Smooth scrolling
+map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
+map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
+
+augroup filetypedetect
+    au BufRead,BufNewFile *.rkt,rktl set filetype=lisp
+augroup END
+
+augroup vimrc-remember-cursor-position
     autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
-  augroup END
-endif
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+augroup END
