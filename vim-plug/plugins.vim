@@ -25,15 +25,15 @@ Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
 " Colorize hex color codes
 Plug 'lilydjwg/colorizer'
 
-" Nvim lsp
-if has('nvim-0.5')
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-lua/completion-nvim'
-    Plug 'nvim-lua/diagnostic-nvim'
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-lua/telescope.nvim'
-endif
+" " Nvim lsp
+" if has('nvim-0.5')
+    " Plug 'neovim/nvim-lspconfig'
+    " Plug 'nvim-lua/completion-nvim'
+    " Plug 'nvim-lua/diagnostic-nvim'
+    " " Plug 'nvim-lua/popup.nvim'
+    " " Plug 'nvim-lua/plenary.nvim'
+    " " Plug 'nvim-lua/telescope.nvim'
+" endif
 
 " Unnecessary
 Plug 'liuchengxu/vim-which-key'
