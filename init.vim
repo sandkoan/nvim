@@ -5,10 +5,12 @@ function! SourceDirectory(file)
   endfor
 endfunction
 
-source $HOME/.config/nvim/vim-plug/plugins.vim
+source $HOME/.config/nvim/plugins/plugins.vim
+source $HOME/.config/nvim/plugins/vim-packs.vim
 
 call SourceDirectory('$HOME/.config/nvim/plug-config')
 call SourceDirectory('$HOME/.config/nvim/my-scripts')
 call SourceDirectory('$HOME/.config/nvim/general')
 
-source $HOME/.config/nvim/general/after/after-init.vim
+source $HOME/.config/nvim/general/after/aesthetic.vim
+source $HOME/.config/nvim/general/after/lsp.vim

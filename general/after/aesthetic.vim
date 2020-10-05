@@ -15,7 +15,6 @@ set conceallevel=2
 
 " Vertical line at 80 characters
 set colorcolumn=80 
-" highlight ColorColumn ctermbg=NONE guibg=lightgrey
 
 " Differentiate whitespaces
 set list
@@ -28,11 +27,6 @@ match WhiteSpaceMol / /
 
 set showmatch
 set matchtime=3
-map <M-m> %
+nnoremap <M-m> %
 highlight MatchParen guifg=NONE guibg=NONE gui=underline cterm=underline
 highlight Normal guibg=NONE ctermbg=NONE
-
-lua <<EOF
-require'nvim_lsp'.clangd.setup{}
-EOF
-

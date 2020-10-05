@@ -31,7 +31,7 @@ Plug 'lilydjwg/colorizer'
 if has('nvim-0.5')
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/completion-nvim'
-    Plug 'nvim-lua/diagnostic-nvim'
+    " Plug 'nvim-lua/diagnostic-nvim'
     " Plug 'nvim-lua/popup.nvim'
     " Plug 'nvim-lua/plenary.nvim'
     " Plug 'nvim-lua/telescope.nvim'
