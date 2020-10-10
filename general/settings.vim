@@ -22,7 +22,22 @@ set path+=.,**
 
 " Wildmenu
 set wildmenu
-set wildmode=list:longest,full
+
+if has('nvim-0.4')
+  " Use cool floating wildmenu options
+  set pumblend=17
+
+  set wildmode-=list
+  set wildmode+=longest
+  set wildmode+=full
+
+  " Makes floating PopUpMenu for completing stuff on the command line.
+  "     Very similar to completing in insert mode.
+  set wildoptions+=pum
+else
+  " set wildmode=longest,list,full
+  set wildmode=list:longest,full
+end
 
 " Wildmenu ignore vcs, and zipped files
 set wildignore=*.swp,*.bak
