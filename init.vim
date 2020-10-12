@@ -13,4 +13,4 @@ call SourceDirectory('$HOME/.config/nvim/my-scripts')
 call SourceDirectory('$HOME/.config/nvim/general')
 
 source $HOME/.config/nvim/general/after/aesthetic.vim
-source $HOME/.config/nvim/general/after/lsp.vim
+source $HOME/.config/nvim/general/after/misc.vim
