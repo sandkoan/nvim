@@ -24,8 +24,11 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Ranger integration
 Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
-" Colorize hex color codes
-Plug 'lilydjwg/colorizer'
+
+" Colorizer
+if has('nvim-0.4')
+    Plug 'norcalli/nvim-colorizer.lua'
+endif
 
 " Nvim lsp
 if has('nvim-0.5')
