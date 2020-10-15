@@ -9,7 +9,7 @@ endif
 call plug#begin('~/.config/nvim/autoload/plugged')
 
 " This file controls what nemo plugins are enabled and what order they load
-" in. Remember to run 'nemo update' after modifying it!
+" in. Remember to run ' ~/.config/nvim/bin/nemo sync' after modifying it!
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
