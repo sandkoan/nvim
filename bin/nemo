@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 clean() {
     if command -v /usr/bin/nvim &> /dev/null
     then
