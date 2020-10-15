@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+update() {
+    if command -v nvim &> /dev/null
+    then
+        nvim -c PlugClean
+        nvim -c PlugInstall
+        nvim -c PlugUpdate
+        echo 'Plugins successfully updated'
+    else
+        echo 'Please install neovim'
+        exit 1
+    fi
+
+    # if command -v vim &> /dev/null
+    # then
+    # vim -c PlugClean
+    # vim -c PlugInstall
+    # vim -c PlugUpdate
+    # fi
+}
+
+upgrade() {
+    if command -v nvim &> /dev/null
+    then
+        nvim -c PlugUpgrade
+        echo 'Vim-plug successfully upgraded'
+    else
+        echo 'Please install neovim'
+        exit 1
+    fi
+
+    # if command -v vim &> /dev/null
+    # then
+    # vim -c PlugUpgrade
+    # fi
+}
+
+main() {
+    while getopts "upd:upg" opt; do
+        case ${opt} in
+            upd ) update
+                ;;
+            upg ) upgrade
+                ;;
+            \? ) echo "Usage: $0 [upgrade] [update]"
+                ;;
+        esac
+    done
+}

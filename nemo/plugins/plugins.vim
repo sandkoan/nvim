@@ -8,6 +8,9 @@ endif
 
 call plug#begin('~/.config/nvim/autoload/plugged')
 
+" This file controls what nemo plugins are enabled and what order they load
+" in. Remember to run 'nemo update' after modifying it!
+
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 
@@ -15,15 +18,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdcommenter'
 Plug 'mbbill/undotree'
 
-" Color scheme
-Plug 'rakr/vim-one'
-" Start screen
-Plug 'mhinz/vim-startify'
+Plug 'rakr/vim-one' " Color scheme
+Plug 'mhinz/vim-startify' " Start screen
+Plug 'liuchengxu/vim-which-key' " Leader popup
 
-Plug 'octol/vim-cpp-enhanced-highlight'
-
-" Ranger integration
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'}
+Plug 'kevinhwang91/rnvimr', {'do': 'make sync'} " Ranger integration
 
 " Colorizer
 if has('nvim-0.4')
@@ -37,13 +36,10 @@ if has('nvim-0.5')
     Plug 'nvim-lua/completion-nvim'
     Plug 'nvim-lua/diagnostic-nvim'
     Plug 'nvim-lua/lsp-status.nvim'
-
     " Treesitter
     " Plug 'nvim-treesitter/nvim-treesitter'
 endif
 
-" Unnecessary
-Plug 'liuchengxu/vim-which-key'
 
 call plug#end()
 
