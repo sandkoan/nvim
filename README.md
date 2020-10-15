@@ -7,7 +7,7 @@ A modular neovim configuration with sane, but flexible defaults.
 ### Install the entire configuration with 
 
 ```bash 
-bash <(curl -s https://raw.githubusercontent.com/sandkoan/nvim/master/bin/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/sandkoan/nvim/master/bin/install)
 ```
 
 **Note: This installation script only works on Ubuntu/Debian and Manjaro/Arch.**
@@ -23,5 +23,5 @@ If you already have an nvim configuration in ```~/.config/nvim```, the ```nvim``
 ### Location
 * User-specific configuration can be found in [nemo](https://github.com/sandkoan/nvim/tree/master/nemo)
 * Configuration settings for installed plugins can be found in [plug-config](https://github.com/sandkoan/nvim/tree/master/nemo/plug-config)
-    * For example, to change file/directory shortcuts in startify, edit ```plug-config/startify.vim```
+    * For example, to change file/directory shortcuts in startify, edit ```nemo/plug-config/startify.vim```
 * I strongly recommend that you install a patched font, like the [JetBrainsMono Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono).
