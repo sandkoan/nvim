@@ -32,12 +32,14 @@ endif
 
 " Nvim lsp
 if has('nvim-0.5')
+    " Lsp
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/completion-nvim'
-    " Plug 'nvim-lua/diagnostic-nvim'
-    " Plug 'nvim-lua/popup.nvim'
-    " Plug 'nvim-lua/plenary.nvim'
-    " Plug 'nvim-lua/telescope.nvim'
+    Plug 'nvim-lua/diagnostic-nvim'
+    Plug 'nvim-lua/lsp-status.nvim'
+
+    " Treesitter
+    " Plug 'nvim-treesitter/nvim-treesitter'
 endif
 
 " Unnecessary

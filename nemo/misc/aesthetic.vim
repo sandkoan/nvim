@@ -1,6 +1,6 @@
 " Aesthetic
 
-if has('nvim-0.5.0')
+if has('nvim-0.5')
   augroup LuaHighlight
     autocmd!
     autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()

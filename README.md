@@ -1,6 +1,6 @@
 # Nvim Nemo 1
 
-![configuration="16pt JetBrainsMono font, Nord colorscheme, Qtile wm"](/img/ConfigPic.png)
+![configuration="16pt JetBrainsMono font, Nord colorscheme, Qtile WM"](core/img/ConfigPic.png)
 
 ### Install the entire configuration with 
 
@@ -8,7 +8,7 @@
 bash <(curl -s https://raw.githubusercontent.com/sandkoan/nvim/master/utils/install.sh)
 ```
 
-**Note: This installation script only works on Ubuntu**
+**Note: This installation script only works on Ubuntu/Debian and Manjaro/Arch based**
 
 If you already have an nvim configuration in ```~/.config/nvim```, the ```nvim``` folder will be renamed to ```nvim_old```.
 
