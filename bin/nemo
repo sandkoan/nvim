@@ -3,8 +3,7 @@
 clean() {
     if command -v /usr/bin/nvim &> /dev/null
     then
-        nvim -c source ~/.config/nvim/init.vim
-        nvim -c PlugClean
+        nvim -c 'so ~/.config/nvim/init.vim | PlugClean'
         echo 'Unwanted plugins successfully removed'
     else
         echo 'Please install neovim'
@@ -15,8 +14,7 @@ clean() {
 install() {
     if command -v /usr/bin/nvim &> /dev/null
     then
-        nvim -c source ~/.config/nvim/init.vim
-        nvim -c PlugInstall
+        nvim -c 'so ~/.config/nvim/init.vim | PlugInstall'
         echo 'New plugins successfully installed'
     else
         echo 'Please install neovim'
@@ -28,8 +26,7 @@ install() {
 update() {
     if command -v /usr/bin/nvim &> /dev/null
     then
-        nvim -c source ~/.config/nvim/init.vim
-        nvim -c PlugUpdate
+        nvim -c 'so ~/.config/nvim/init.vim | PlugUpdate'
         echo 'Plugins successfully updated'
     else
         echo 'Please install neovim'
@@ -38,7 +35,13 @@ update() {
 }
 
 sync() {
-    clean && install && update
+    if command -v /usr/bin/nvim &> /dev/null
+    then
+        nvim -c 'so ~/.config/nvim/init.vim | PlugClean | PlugInstall | PlugUpdate'
+    else
+        echo 'Please install neovim'
+        exit 1
+    fi
 }
 
 
@@ -55,17 +58,12 @@ upgrade() {
     fi
 }
 
-main() {
-    while getopts "upgrade:sync" opt; do
-        case ${opt} in
-            upgrade ) upgrade
-                ;;
-            sync ) sync
-                ;;
-            \? ) echo "Usage: $0 [upgrade][sync]" && exit 1
-                ;;
-        esac
-    done
-}
+# parse opts
 
-main
+while [ $# -gt 0 ] ; do
+    case $1 in
+        -s | --sync | sync) sync ;;
+        -u | --upgrade | upgrade) upgrade ;;
+    esac
+    shift
+done
