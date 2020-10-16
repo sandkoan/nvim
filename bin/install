@@ -30,11 +30,8 @@ else
 	git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 fi
 
-config_directory="~/.config/nvim"
-if [ -d "~/.config/nvim" ]
-then
-	mv "~/.config/nvim" "~/.config/nvim_old"
-fi
+[ -d "~/.config/nvim" ] && mv "~/.config/nvim" "~/.config/nvim_old"
+
 
 # Install Nemo 1 nvim config
 git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
