@@ -31,9 +31,9 @@ else
 fi
 
 config_directory="~/.config/nvim"
-if [ -d "$config_directory" ]
+if [ -d "~/.config/nvim" ]
 then
-	mv "${config_directory}" "${config_directory}_old"
+	mv "~/.config/nvim" "~/.config/nvim_old"
 fi
 
 # Install Nemo 1 nvim config
