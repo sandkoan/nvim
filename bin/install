@@ -4,7 +4,7 @@
 if python3 -m platform | egrep -qi "manjaro|arch"
 then
 	os="arch"
-else if python3 -m platform | egrep -qi "debian|ubuntu"
+elif python3 -m platform | egrep -qi "debian|ubuntu"
 then
 	os="debian"
 else
