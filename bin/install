@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # Identify linux distribution
-if python3 -m platform | egrep -qi "manjaro|arch"
+if cat /etc/*-release | egrep -qi "manjaro|arch"
 then
 	os="arch"
-elif python3 -m platform | egrep -qi "debian|ubuntu"
+elif cat /etc/*-release | egrep -qi "debian|ubuntu"
 then
 	os="debian"
 else
