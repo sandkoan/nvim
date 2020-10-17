@@ -1,37 +1,63 @@
 #!/usr/bin/env bash
 
-# Identify linux distribution
-if cat /etc/*-release | egrep -qi "manjaro|arch"
-then
-	os="arch"
-elif cat /etc/*-release | egrep -qi "debian|ubuntu"
-then
-	os="debian"
-else
-	echo 'Your Linux distribution is not yet supported.'
-	echo 'Currently, only arch/manjaro and debian/ubuntu are supported'
-	echo 'Please proceed with the installation manually.'
-	exit 1
-fi
+identify_distro() {
+    if cat /etc/*-release | egrep -qi "manjaro|arch"
+    then
+        os="arch"
+        sudo pacman -S neovim git
+    elif cat /etc/*-release | egrep -qi "debian|ubuntu"
+    then
+        os="debian"
+        sudo apt install neovim git
+    else
+        echo 'Your Linux distribution is not yet supported.'
+        echo 'Currently, only arch/manjaro and debian/ubuntu are supported'
+        echo 'Please proceed with the installation manually.'
+        exit 1
+    fi
+}
 
-if [[ "$os" == "arch" ]]
-then
-	sudo pacman -S xsel git ranger neovim
-else
-	sudo apt install xsel git ranger neovim
-fi
+install_programs() {
+    echo "Would you like to install $1 $2?"
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) 
+                if [[ "$os" == "arch" ]]
+                then
+                    sudo pacman -S $1
+                else 
+                    sudo apt install $1
+                fi
+                break;;
+            No )
+                exit;;
+        esac
+    done
+}
 
-if grep -qs "default_linemode devicons" ~/.config/ranger/rc.conf
-then
-	echo 'Ranger devicons have already been installed'
-else
-	mkdir -p ~/.config/ranger/plugins/ranger_devicons
-	echo -e "default_linemode devicons\nset show_hidden true" >> ~/.config/ranger/rc.conf
-	git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
-fi
-
-[ -d "~/.config/nvim" ] && mv "~/.config/nvim" "~/.config/nvim_old"
 
 
-# Install Nemo 1 nvim config
-git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
+install_ranger_devicons() {
+    if grep -qs "default_linemode devicons" ~/.config/ranger/rc.conf
+    then
+        echo 'Ranger devicons have already been installed.'
+    else
+        mkdir -p ~/.config/ranger/plugins/ranger_devicons
+        echo -e "default_linemode devicons\nset show_hidden true" >> ~/.config/ranger/rc.conf
+        git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+    fi
+}
+
+main() {
+    identify_distro
+
+    install_programs xsel "for system clipboard integration"
+    install_programs ranger "for a terminal based file explorer (with vimkeys), and inside vim"
+
+    install_ranger_devicons
+
+    [ -d "~/.config/nvim" ] && mv "~/.config/nvim" "~/.config/nvim_old"
+    git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
+}
+
+main
