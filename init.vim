@@ -14,3 +14,7 @@ call SourceDirectory('$HOME/.config/nvim/nemo/plug-config')
 
 " Misc - statuslines, etc
 call SourceDirectory('$HOME/.config/nvim/nemo/misc')
+
+" User defined config file
+
+source $HOME/.config/nvim/nemo/config.vim
