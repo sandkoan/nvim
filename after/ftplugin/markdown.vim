@@ -1,2 +1,2 @@
-nnoremap <buffer> gx :<C-u>call markdown#checkbox#toggle()<CR>
-nnoremap <buffer> gX :<C-u>call markdown#checkbox#remove()<CR>
+nnoremap <buffer> <localleader>x :<C-u>call markdown#checkbox#toggle()<CR>
+nnoremap <buffer> <localleader>X :<C-u>call markdown#checkbox#remove()<CR>
