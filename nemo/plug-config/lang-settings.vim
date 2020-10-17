@@ -2,13 +2,15 @@
 let g:lisp_rainbow = 1
 
 " Markdown syntax highlighting
-let g:markdown_fenced_languages = ['bash=sh', 'python', 'java', 'css', 'html', 'cpp', 'c', 'perl', 'ruby', 'html', 'vim', 'go', 'rust']
+let g:markdown_fenced_languages = ['bash=sh', 'zsh', 'python', 'java', 'css', 
+            \ 'html', 'cpp', 'c', 'perl', 'ruby', 'vim', 'go', 'rust']
 
 " Python
 let python_highlight_all = 1
 
 " RST
-let rst_syntax_code_list = ['sh', 'python', 'java', 'css', 'html', 'cpp', 'c', 'perl', 'ruby', 'html', 'vim', 'go', 'rust']
+let rst_syntax_code_list = ['sh', 'zsh', 'python', 'java', 'css', 'html', 
+            \ 'cpp', 'c', 'perl', 'ruby', 'vim', 'go', 'rust']
 let rst_use_emphasis_colors = 1
 let rst_fold_enabled = 1
 
