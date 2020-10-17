@@ -16,17 +16,31 @@ If you already have an nvim configuration in `~/.config/nvim`, the `nvim` folder
 
 ### Post installation
 1. Launch neovim, you should be met with many errors.
-2. Enter command mode (hit \<Escape\>) then type `:PlugInstall`.
-3. After installation, quit (\<Escape\>, then type `:q!`).
+2. Enter command mode (hit `<Escape>`) then type `:PlugInstall`.
+3. After installation, quit (`<Escape>`, then type `:q!`).
 4. Success! You have successfully installed `Nemo 1`.
 
 Feel free to make pull requests or open issues if you run into any issues.
 
 ### Some of the installed plugins
 * Plugin manager is [vim-plug](https://github.com/junegunn/vim-plug)
-* [Ranger](https://github.com/ranger/ranger) for file exploring with highly customizable vim keybindings
+* Powerful fuzzy searching with [fzf](https://github.com/junegunn/fzf.vim)
+* [Rnvimr](https://github.com/kevinhwang91/rnvimr) a plugin that allows you to use Ranger instead of netrw for file exploration
 * Tim Pope's [vim-fugitive](https://github.com/tpope/vim-fugitive) for git integration and [vim-surround](https://github.com/tpope/vim-surround) for surrounding things
 * [Vim-which-key](https://github.com/liuchengxu/vim-which-key) for Spacemacs-style leader popup 
+
+### Dependencies
+* [Neovim](https://neovim.io/)(ideally, the nightly version for lsp support)
+* [Curl](https://curl.haxx.se/) for the installation of vim-plug
+
+### Strongly Recommended
+* Xsel for integration with system clipboard
+* [Ranger](https://github.com/ranger/ranger), a cli filemanager with cim-inspired keybindings
+* [FZF](https://github.com/junegunn/fzf) the command-line fuzzy finder
+* [Ripgrep](https://github.com/BurntSushi/ripgrep), a blazing fast search utility written in rust
+
+### Truly Optional
+* [Fd](https://github.com/sharkdp/fd), a simple, fast user-friendly alternative to GNU find, written in rust
 
 ### Configuration
 * User-specific configuration can be found in [nemo](https://github.com/sandkoan/nvim/tree/master/nemo)

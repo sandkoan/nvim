@@ -8,16 +8,16 @@ cnoreabbrev <expr> grep  (getcmdtype() ==# ':' && getcmdline() =~# '^grep')  ? '
 cnoreabbrev <expr> lgrep (getcmdtype() ==# ':' && getcmdline() =~# '^lgrep') ? 'silent lgrep' : 'lgrep'
 
 " Navigate errors in quicklist
-nnoremap <leader>qf :call searching#QuickFilter()<CR>
+" nnoremap <leader>qf :call searching#QuickFilter()<CR>
 
 " Edit recent files
-nnoremap <leader>fr :call searching#FindRecentFiles()<CR>
+" nnoremap <leader>fr :call searching#FindRecentFiles()<CR>
 
 " Very powerful searching
-set wildcharm=<C-z>
+" set wildcharm=<C-z>
 " Recursive
 " nnoremap <leader>er :e **/*<C-z><S-Tab>
 " nnoremap <leader>fr :find **/*<C-z><S-Tab>
 
 " Search under directly of current file
-nnoremap <leader>ff :call searching#FindLocalFile()<CR>
+" nnoremap <leader>ff :call searching#FindLocalFile()<CR>

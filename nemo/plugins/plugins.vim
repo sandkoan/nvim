@@ -22,7 +22,13 @@ Plug 'rakr/vim-one' " Color scheme
 Plug 'mhinz/vim-startify' " Start screen
 Plug 'liuchengxu/vim-which-key' " Leader popup
 
-Plug 'kevinhwang91/rnvimr', {'do': 'make sync'} " Ranger integration
+if executable('ranger')
+    Plug 'kevinhwang91/rnvimr', {'do': 'make sync'} " Ranger integration
+endif
+
+" Fuzzy finding with fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Colorizer
 if has('nvim-0.4')

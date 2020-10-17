@@ -35,8 +35,6 @@ install_programs() {
     done
 }
 
-
-
 install_ranger_devicons() {
     if grep -qs "default_linemode devicons" ~/.config/ranger/rc.conf
     then
@@ -53,8 +51,12 @@ main() {
 
     install_programs xsel "for system clipboard integration"
     install_programs ranger "for a terminal based file explorer (with vimkeys), and inside vim"
+    install_programs fzf ", the command-line fuzzy searcher"
+    install_programs ripgrep ", a fast alternative to GNU grep, written in rust"
 
-    install_ranger_devicons
+    if command -v ranger &> /dev/null
+        install_ranger_devicons
+    fi
 
     [ -d "~/.config/nvim" ] && mv "~/.config/nvim" "~/.config/nvim_old"
     git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
