@@ -1,6 +1,9 @@
+if has ('nvim-0.4')
 " Colorizer
 lua require'colorizer'.setup()
+endif
 
+if has('nvim-0.5')
 " Lsp
 set completeopt=menuone,noinsert,noselect
 lua require'nvim_lsp'.clangd.setup{on_attach=require'completion'.on_attach}
@@ -53,3 +56,4 @@ EOF
 
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+endif
