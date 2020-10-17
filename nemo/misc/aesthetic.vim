@@ -1,10 +1,10 @@
 " Aesthetic
 
-if has('nvim-0.5.0')
-  augroup LuaHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
-  augroup END
+if has('nvim-0.5')
+    augroup LuaHighlight
+        autocmd!
+        autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
+    augroup END
 endif
 
 set termguicolors

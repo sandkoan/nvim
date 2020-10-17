@@ -1,0 +1,69 @@
+#!/usr/bin/env bash
+
+clean() {
+    if command -v /usr/bin/nvim &> /dev/null
+    then
+        nvim -c 'so ~/.config/nvim/init.vim | PlugClean'
+        echo 'Unwanted plugins successfully removed'
+    else
+        echo 'Please install neovim'
+        exit 1
+    fi
+}
+
+install() {
+    if command -v /usr/bin/nvim &> /dev/null
+    then
+        nvim -c 'so ~/.config/nvim/init.vim | PlugInstall'
+        echo 'New plugins successfully installed'
+    else
+        echo 'Please install neovim'
+        exit 1
+    fi
+}
+
+
+update() {
+    if command -v /usr/bin/nvim &> /dev/null
+    then
+        nvim -c 'so ~/.config/nvim/init.vim | PlugUpdate'
+        echo 'Plugins successfully updated'
+    else
+        echo 'Please install neovim'
+        exit 1
+    fi
+}
+
+sync() {
+    if command -v /usr/bin/nvim &> /dev/null
+    then
+        nvim -c 'so ~/.config/nvim/init.vim | PlugClean | PlugInstall | PlugUpdate'
+    else
+        echo 'Please install neovim'
+        exit 1
+    fi
+}
+
+
+upgrade() {
+    if command -v /usr/bin/nvim &> /dev/null
+    then
+        nvim -c PlugUpgrade
+        cd ~/.config/nvim && git pull || exit 1
+        sync
+        echo 'Nemo successfully upgraded with latest changes'
+    else
+        echo 'Please install neovim'
+        exit 1
+    fi
+}
+
+# parse opts
+
+while [ $# -gt 0 ] ; do
+    case $1 in
+        -s | --sync | sync) sync ;;
+        -u | --upgrade | upgrade) upgrade ;;
+    esac
+    shift
+done

@@ -71,7 +71,11 @@ set history=10000
 " set winheight=50
 
 "Undodir + Backups
-set undodir=~/.config/nvim/undodir
+if has('nvim')
+    set undodir=~/.config/nvim/undodir
+else
+    set undodir=~/.vim
+endif
 set undofile
 set nobackup
 set nowritebackup
@@ -88,16 +92,12 @@ set incsearch
 set ignorecase
 set smartcase
 if exists('&inccommand')
-  set inccommand=split
+    set inccommand=split
 endif
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
-
-" Tabs
-set tabstop=4 softtabstop=4 shiftwidth=4
-set smarttab expandtab
 
 "Folding
 set foldenable
@@ -108,10 +108,6 @@ set foldmethod=syntax
 " Smooth scrolling
 map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
 map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
-
-augroup filetypedetect
-    au BufRead,BufNewFile *.rkt,rktl set filetype=lisp
-augroup END
 
 augroup vimrc-remember-cursor-position
     autocmd!

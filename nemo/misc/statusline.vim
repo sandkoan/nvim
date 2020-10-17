@@ -99,6 +99,20 @@ function! StatuslineGit()
   endif
 endfunction
 
+if has('nvim-0.5')
+" function! TreeSitterStatus() 
+    " return nvim_treesitter#statusline(90) ==? 'null' ? '' : nvim_treesitter#statusline(90)
+" endfunction
+
+function! LspStatus() abort
+  if luaeval('#vim.lsp.buf_get_clients() > 0')
+    return luaeval("require('lsp-status').status()")
+  endif
+
+  return ''
+endfunction
+endif
+
 set laststatus=2
 set statusline=
 set statusline+=%{ChangeStatuslineColor()}               " Changing the statusline color
@@ -108,8 +122,12 @@ set statusline+=%8*\ %{StatuslineGit()}                  " Git Branch name
 set statusline+=%8*\ %<%F\ %{ReadOnly()}\ %m\ %w\        " File+path
 set statusline+=%=
 set statusline+=%#warningmsg#                            " Warning messages
+if has('nvim-0.5')
+" set statusline+=%{TreeSitterStatus()}                    " TreeSitter AST Info
+set statusline+=%{LspStatus()}                           " Nvim Lsp Info
+endif
 set statusline+=%*
 set statusline+=%9*\ %=                                  " Space
 set statusline+=%8*\ %y\                                 " FileType
 set statusline+=%8*\ %-3(%{FileSize()}%)                 " File size
-set statusline+=%0*\%3p%%\ \ %l:\ %3c\                 " Rownumber, total (%)
+set statusline+=%0*\%3p%%\ \ %l:\ %3c\                  " Rownumber, total (%)

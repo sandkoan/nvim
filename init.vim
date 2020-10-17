@@ -5,12 +5,16 @@ function! SourceDirectory(file)
   endfor
 endfunction
 
-source $HOME/.config/nvim/plugins/plugins.vim
-source $HOME/.config/nvim/plugins/vim-packs.vim
+call SourceDirectory('$HOME/.config/nvim/core/general')
+call SourceDirectory('$HOME/.config/nvim/core/scripts')
 
-call SourceDirectory('$HOME/.config/nvim/plug-config')
-call SourceDirectory('$HOME/.config/nvim/my-scripts')
-call SourceDirectory('$HOME/.config/nvim/general')
+" Plugins
+call SourceDirectory('$HOME/.config/nvim/nemo/plugins')
+call SourceDirectory('$HOME/.config/nvim/nemo/plug-config')
 
-source $HOME/.config/nvim/general/after/aesthetic.vim
-source $HOME/.config/nvim/general/after/lsp.vim
+" Misc - statuslines, etc
+call SourceDirectory('$HOME/.config/nvim/nemo/misc')
+
+" User defined config file
+
+source $HOME/.config/nvim/nemo/config.vim

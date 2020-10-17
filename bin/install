@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Identify linux distribution
+if cat /etc/*-release | egrep -qi "manjaro|arch"
+then
+	os="arch"
+elif cat /etc/*-release | egrep -qi "debian|ubuntu"
+then
+	os="debian"
+else
+	echo 'Your Linux distribution is not yet supported.'
+	echo 'Currently, only arch/manjaro and debian/ubuntu are supported'
+	echo 'Please proceed with the installation manually.'
+	exit 1
+fi
+
+if [[ "$os" == "arch" ]]
+then
+	sudo pacman -S xsel git ranger neovim
+else
+	sudo apt install xsel git ranger neovim
+fi
+
+if grep -qs "default_linemode devicons" ~/.config/ranger/rc.conf
+then
+	echo 'Ranger devicons have already been installed'
+else
+	mkdir -p ~/.config/ranger/plugins/ranger_devicons
+	echo -e "default_linemode devicons\nset show_hidden true" >> ~/.config/ranger/rc.conf
+	git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+fi
+
+[ -d "~/.config/nvim" ] && mv "~/.config/nvim" "~/.config/nvim_old"
+
+
+# Install Nemo 1 nvim config
+git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
