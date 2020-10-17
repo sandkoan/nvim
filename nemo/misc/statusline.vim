@@ -11,26 +11,26 @@ set tabline="%1T"
 " Statusline
 
 let g:currentmode={
-      \ 'n'  : 'N ',
-      \ 'no' : 'N·Operator Pending ',
-      \ 'v'  : 'V ',
-      \ 'V'  : 'V·Line ',
-      \ '' : 'V·Block',
-      \ 's'  : 'Select ',
-      \ 'S'  : 'S·Line ',
-      \ '' : 'S·Block ',
-      \ 'i'  : 'I ',
-      \ 'R'  : 'R ',
-      \ 'Rv' : 'V·Replace ',
-      \ 'c'  : 'Command ',
-      \ 'cv' : 'Vim Ex ',
-      \ 'ce' : 'Ex ',
-      \ 'r'  : 'Prompt ',
-      \ 'rm' : 'More ',
-      \ 'r?' : 'Confirm ',
-      \ '!'  : 'Shell ',
-      \ 't'  : 'Terminal '
-      \}
+            \ 'n'  : 'N ',
+            \ 'no' : 'N·Operator Pending ',
+            \ 'v'  : 'V ',
+            \ 'V'  : 'V·Line ',
+            \ '' : 'V·Block',
+            \ 's'  : 'Select ',
+            \ 'S'  : 'S·Line ',
+            \ '' : 'S·Block ',
+            \ 'i'  : 'I ',
+            \ 'R'  : 'R ',
+            \ 'Rv' : 'V·Replace ',
+            \ 'c'  : 'Command ',
+            \ 'cv' : 'Vim Ex ',
+            \ 'ce' : 'Ex ',
+            \ 'r'  : 'Prompt ',
+            \ 'rm' : 'More ',
+            \ 'r?' : 'Confirm ',
+            \ '!'  : 'Shell ',
+            \ 't'  : 'Terminal '
+            \}
 
 highlight User1 cterm=None gui=None ctermfg=007 guifg=fgcolor
 highlight User2 cterm=None gui=None ctermfg=008 guifg=bgcolor
@@ -43,74 +43,70 @@ highlight User9 cterm=None gui=None ctermfg=007 guifg=fgcolor
 
 " Automatically change the statusline color depending on mode
 function! ChangeStatuslineColor()
-  if (mode() =~# '\v(n|no)')
-    exe 'hi! StatusLine ctermfg=008 guifg=fgcolor gui=None cterm=None'
-  elseif (mode() =~# '\v(v|V)' || g:currentmode[mode()] ==# 'V·Block' || get(g:currentmode, mode(), '') ==# 't')
-    exe 'hi! StatusLine ctermfg=005 guifg=#00ff00 gui=None cterm=None'
-  elseif (mode() ==# 'i')
-    exe 'hi! StatusLine ctermfg=004 guifg=#6CBCE8 gui=None cterm=None'
-  else
-    exe 'hi! StatusLine ctermfg=006 guifg=orange gui=None cterm=None'
-  endif
+    if (mode() =~# '\v(n|no)')
+        exe 'hi! StatusLine ctermfg=008 guifg=fgcolor gui=None cterm=None'
+    elseif (mode() =~# '\v(v|V)' || g:currentmode[mode()] ==# 'V·Block' || get(g:currentmode, mode(), '') ==# 't')
+        exe 'hi! StatusLine ctermfg=005 guifg=#00ff00 gui=None cterm=None'
+    elseif (mode() ==# 'i')
+        exe 'hi! StatusLine ctermfg=004 guifg=#6CBCE8 gui=None cterm=None'
+    else
+        exe 'hi! StatusLine ctermfg=006 guifg=orange gui=None cterm=None'
+    endif
 
-  return ''
+    return ''
 endfunction
 
 " Find out current buffer's size and output it.
 function! FileSize()
-  let bytes = getfsize(expand('%:p'))
-  if (bytes >= 1024)
-    let kbytes = bytes / 1024
-  endif
-  if (exists('kbytes') && kbytes >= 1000)
-    let mbytes = kbytes / 1000
-  endif
+    let bytes = getfsize(expand('%:p'))
+    if (bytes >= 1024)
+        let kbytes = bytes / 1024
+    endif
+    if (exists('kbytes') && kbytes >= 1000)
+        let mbytes = kbytes / 1000
+    endif
 
-  if bytes <= 0
-    return '0'
-  endif
+    if bytes <= 0
+        return '0'
+    endif
 
-  if (exists('mbytes'))
-    return mbytes . ' MB '
-  elseif (exists('kbytes'))
-    return kbytes . ' KB '
-  else
-    return bytes . ' B '
-  endif
+    if (exists('mbytes'))
+        return mbytes . ' MB '
+    elseif (exists('kbytes'))
+        return kbytes . ' KB '
+    else
+        return bytes . ' B '
+    endif
 endfunction
 
 function! ReadOnly()
-  if &readonly || !&modifiable
-    return ''
-  else
-    return ''
+    if &readonly || !&modifiable
+        return ''
+    else
+        return ''
+    endif
 endfunction
 
 function! GitBranch()
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+    return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
 endfunction
 
 function! StatuslineGit()
-  let l:branchname = GitBranch()
-  if strlen(l:branchname) > 0
-    return ' '.l:branchname
-  else
-    return ''
-  endif
+    let l:branchname = GitBranch()
+    if strlen(l:branchname) > 0
+        return ' '.l:branchname
+    else
+        return ''
+    endif
 endfunction
 
 if has('nvim-0.5')
-" function! TreeSitterStatus() 
-    " return nvim_treesitter#statusline(90) ==? 'null' ? '' : nvim_treesitter#statusline(90)
-" endfunction
-
-function! LspStatus() abort
-  if luaeval('#vim.lsp.buf_get_clients() > 0')
-    return luaeval("require('lsp-status').status()")
-  endif
-
-  return ''
-endfunction
+    function! LspStatus() abort
+        if luaeval('#vim.lsp.buf_get_clients() > 0')
+            return luaeval("require('lsp-status').status()")
+        endif
+        return ''
+    endfunction
 endif
 
 set laststatus=2
@@ -123,11 +119,12 @@ set statusline+=%8*\ %<%F\ %{ReadOnly()}\ %m\ %w\        " File+path
 set statusline+=%=
 set statusline+=%#warningmsg#                            " Warning messages
 if has('nvim-0.5')
-" set statusline+=%{TreeSitterStatus()}                    " TreeSitter AST Info
-set statusline+=%{LspStatus()}                           " Nvim Lsp Info
+    set statusline+=%{LspStatus()}                           " Nvim Lsp Info
 endif
 set statusline+=%*
 set statusline+=%9*\ %=                                  " Space
 set statusline+=%8*\ %y\                                 " FileType
 set statusline+=%8*\ %-3(%{FileSize()}%)                 " File size
 set statusline+=%0*\%3p%%\ \ %l:\ %3c\                  " Rownumber, total (%)
+set statusline+=\ z:%{foldlevel(line('.'))}              " Fold level of current line
+set statusline+=\ t:%{status#StatusTimeLine()}                  " Time level
