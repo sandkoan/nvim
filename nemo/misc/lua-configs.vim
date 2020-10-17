@@ -55,6 +55,6 @@ nvim_lsp.clangd.setup({
 
 EOF
 
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
+" set foldmethod=expr
+" set foldexpr=nvim_treesitter#foldexpr()
 endif
