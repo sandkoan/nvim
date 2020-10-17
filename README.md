@@ -40,6 +40,7 @@ Feel free to make pull requests or open issues if you run into any issues.
 * [Ripgrep](https://github.com/BurntSushi/ripgrep), a blazing fast search utility written in rust
 
 ### Truly Optional
+* [Bat](https://github.com/sharkdp/bat), for syntax-highlighted preview with fzf
 * [Fd](https://github.com/sharkdp/fd), a simple, fast user-friendly alternative to GNU find, written in rust
 
 ### Configuration
