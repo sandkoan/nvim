@@ -40,7 +40,6 @@ if has('nvim-0.5')
     " Plug 'nvim-treesitter/nvim-treesitter'
 endif
 
-
 call plug#end()
 
 " Automatically install missing plugins on startup
