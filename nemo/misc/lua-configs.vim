@@ -6,6 +6,7 @@ endif
 if has('nvim-0.5')
 " Lsp
 set completeopt=menuone,noinsert,noselect
+lua require'nvim_lsp'.clangd.setup{}
 lua require'nvim_lsp'.clangd.setup{on_attach=require'completion'.on_attach}
 
 " Diagnostic-nvim
