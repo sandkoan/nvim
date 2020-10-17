@@ -30,7 +30,7 @@ Feel free to make pull requests or open issues if you run into any issues.
 * [Vim-which-key](https://github.com/liuchengxu/vim-which-key) for Spacemacs-style leader popup 
 
 ### Dependencies
-* [Neovim](https://neovim.io/)(ideally, the nightly version for lsp support)
+* [Neovim](https://neovim.io/) (ideally, the nightly version for lsp support)
 * [Curl](https://curl.haxx.se/) for the installation of vim-plug
 
 ### Strongly Recommended
