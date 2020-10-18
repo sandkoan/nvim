@@ -25,15 +25,16 @@ Feel free to make pull requests or open issues if you run into any issues.
 ### Some of the installed plugins
 * Plugin manager is [vim-plug](https://github.com/junegunn/vim-plug)
 * Powerful fuzzy searching with [fzf](https://github.com/junegunn/fzf.vim)
-* [Rnvimr](https://github.com/kevinhwang91/rnvimr) a plugin that allows you to use Ranger instead of netrw for file exploration
+* [Rnvimr](https://github.com/kevinhwang91/rnvimr), a plugin that allows you to use Ranger instead of netrw for file exploration
 * Tim Pope's [vim-fugitive](https://github.com/tpope/vim-fugitive) for git integration and [vim-surround](https://github.com/tpope/vim-surround) for surrounding things
 * [Vim-which-key](https://github.com/liuchengxu/vim-which-key) for Spacemacs-style leader popup 
 
-### Dependencies
+#### Dependencies
+### Requirements
 * [Neovim](https://neovim.io/) (ideally, the nightly version for lsp support)
 * [Curl](https://curl.haxx.se/) for the installation of vim-plug
 
-### Strongly Recommended
+### Optional (Strongly Recommended)
 * Xsel for integration with system clipboard
 * [Ranger](https://github.com/ranger/ranger), a cli filemanager with cim-inspired keybindings
 * [FZF](https://github.com/junegunn/fzf) the command-line fuzzy finder
