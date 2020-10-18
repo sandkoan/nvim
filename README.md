@@ -36,7 +36,7 @@ Feel free to make pull requests or open issues if you run into any issues.
 
 ### Optional (Strongly Recommended)
 * Xsel for integration with system clipboard
-* [Ranger](https://github.com/ranger/ranger), a cli filemanager with cim-inspired keybindings
+* [Ranger](https://github.com/ranger/ranger), a cli filemanager with vim-inspired keybindings
 * [FZF](https://github.com/junegunn/fzf) the command-line fuzzy finder
 * [Ripgrep](https://github.com/BurntSushi/ripgrep), a blazing fast search utility written in rust
 
