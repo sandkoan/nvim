@@ -149,8 +149,6 @@ cnoremap <Esc><C-F> <S-Right>
 
 nnoremap <silent> <Leader>S :call misc#ToggleSpellCheck()<CR>
 
-nnoremap <C-t> :call misc#Toggle_transparent()<CR>
-
 nnoremap <leader>cuc :call misc#GetColorUnderCursor()<CR>
 
 command! FixWhitespace :%s/\s\+$//e
