@@ -10,6 +10,8 @@ set tabline="%1T"
 
 " Statusline
 
+let s:status_fourth_dim = get(g:, 'statusline_fourth_dimension', 0)
+
 let g:currentmode={
             \ 'n'  : 'N ',
             \ 'no' : 'N·Operator Pending ',
@@ -126,5 +128,8 @@ set statusline+=%9*\ %=                                  " Space
 set statusline+=%8*\ %y\                                 " FileType
 set statusline+=%8*\ %-3(%{FileSize()}%)                 " File size
 set statusline+=%0*\%3p%%\ \ %l:\ %3c\                  " Rownumber, total (%)
-set statusline+=\ z:%{foldlevel(line('.'))}              " Fold level of current line
-set statusline+=\ t:%{status#StatusTimeLine()}                  " Time level
+
+if s:status_fourth_dim == '1'
+    set statusline+=\ z:%{foldlevel(line('.'))}              " Fold level of current line
+    set statusline+=\ t:%{status#StatusTimeLine()}           " Time level
+endif
