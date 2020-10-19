@@ -3,35 +3,35 @@
 # Installation script
 
 # Colors
-BLUE='\033[0;34m'
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-PURPLE='\033[0;35m'
-NC='\033[0m' # No Color
+BLUE="\033[0;34m"
+RED="\033[0;31m"
+GREEN="\033[0;32m"
+PURPLE="\033[0;35m"
+NC="\033[0m" # No Color
 
 identify_distro() {
     if cat /etc/*-release | egrep -qi "manjaro|arch"
     then
         os="arch"
-        echo -e "Your {GREEN}distribution{NC} has been identified to be an {BLUE}Arch{NC} derivative."
-        echo -e "Installing {RED}git{NC}..."
+        echo -e "Your ${GREEN}distribution${NC} has been identified to be an ${BLUE}Arch{NC} derivative."
+        echo -e "Installing ${RED}git${NC}..."
         sudo pacman -S git
     elif cat /etc/*-release | egrep -qi "debian|ubuntu"
     then
         os="debian"
-        echo -e "Your {GREEN}distribution{NC} has been identified to be a {BLUE}Debian{NC} derivative."
-        echo -e "Installing {RED}git{NC}..."
+        echo -e "Your ${GREEN}distribution${NC} has been identified to be a ${BLUE}Debian{NC} derivative."
+        echo -e "Installing ${RED}git${NC}..."
         sudo apt install git
     else
         echo 'Your Linux distribution is not yet supported.'
-        echo -e "Currently, only {BLUE}Arch/Manjaro{NC} and {BLUE}Debian/Ubuntu{NC} are supported."
+        echo -e "Currently, only ${BLUE}Arch/Manjaro${NC} and {BLUE}Debian/Ubuntu{NC} are supported."
         echo 'Please proceed with the installation manually.'
         exit 1
     fi
 }
 
 install_programs() {
-    echo -e "Would you like to install {GREEN}$1{NC} $2?"
+    echo -e "Would you like to install ${GREEN}$1${NC} $2?"
     select yn in "Yes" "No"; do
         case $yn in
             Yes ) 
@@ -48,20 +48,57 @@ install_programs() {
     done
 }
 
+
+install_nvim() {
+    echo -e "Would you like to install the NIGHTLY version of ${PURPLE}neovim (v0.5)${NC}?"
+    echo "It is strongly recommended, to take advantage of features like the builtin-lsp client and treesitter."
+    echo "Answering ${RED}No${NC} implies you would like to install the neovim stable release (v0.4.4)."
+    select yn in "Yes" "No"; do
+        case $yn in
+            Yes ) 
+                if [[ "$os" == "arch" ]]
+                then
+                    sudo pacman -Rs neovim
+                    sudo pacman -S --needed base-devel git
+                    git clone https://aur.archlinux.org/neovim-nightly.git && builtin cd neovim-nightly && makepkg -si
+                    echo -e "${BLUE}Neovim (v0.5)${NC} successfully installed."
+                else
+                    sudo apt remove neovim
+                    sudo add-apt-repository ppa:neovim-ppa/unstable
+                    sudo apt-get update
+                    sudo apt install neovim
+                fi
+                break;;
+            No )
+                if [[ "$os" == "arch" ]]
+                then
+                    sudo pacman -S neovim
+                    echo -e "${BLUE}Neovim (v0.4.4)${NC} successfully installed."
+                else
+                    sudo apt install neovim
+                    echo -e "${BLUE}Neovim (v0.4.4)${NC} successfully installed."
+                fi
+                break;;
+        esac
+    done
+}
+
 install_ranger_devicons() {
     if grep -qs "default_linemode devicons" ~/.config/ranger/rc.conf
     then
-        echo -e "{GREEN}Ranger devicons{NC} have already been installed."
+        echo -e "${GREEN}Ranger devicons${NC} have already been installed."
     else
         mkdir -p ~/.config/ranger/plugins/ranger_devicons
         echo -e "default_linemode devicons\nset show_hidden true" >> ~/.config/ranger/rc.conf
         git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
-        echo -e "{GREEN}Ranger devicons{NC} have been installed."
+        echo -e "${GREEN}Ranger devicons${NC} have been installed."
     fi
 }
 
 main() {
     identify_distro
+
+    install_nvim
 
     install_programs xsel "for system clipboard integration"
     install_programs ranger "for a terminal based file explorer (with vimkeys), and inside vim"
@@ -73,20 +110,20 @@ main() {
         install_ranger_devicons
     fi
 
-    [[ -d ~/.config/nvim ]] && mv ~/.config/nvim ~/.config/nvim_old && echo -e "Renaming {BLUE}nvim{NC} config directory to {GREEN}nvim_old{NC}."
+    [[ -d ~/.config/nvim ]] && mv ~/.config/nvim ~/.config/nvim_old && echo -e "Renaming ${BLUE}nvim${NC} config directory to ${GREEN}nvim_old${NC}."
 
     git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
 
-    echo -e "If you have not installed a {RED}Nerd Font{NC} from https://github.com/ryanoasis/nerd-fonts,\nplease do so after the installation script is complete."
+    echo -e "If you have not installed a ${RED}Nerd Font${NC} from https://github.com/ryanoasis/nerd-fonts,\nplease do so after the installation script is complete."
 
     ~/.config/nvim/bin/nemo upgrade
 
-    echo -e "Running {GREEN}~/.config/nvim/bin/nemo upgrade{NC} now. This will install and update plugins as necessary."
+    echo -e "Running ${GREEN}~/.config/nvim/bin/nemo upgrade${NC} now. This will install and update plugins as necessary."
 
-    echo -e "Whenever you make any changes to installed plugins, make sure to run {GREEN}~/.config/nvim/bin/nemo sync{NC}!"
-    echo -e "To get the latest changes from the git repository, make sure to run {GREEN}~/.config/nvim/bin/nemo upgrade{NC}."
+    echo -e "Whenever you make any changes to installed plugins, make sure to run ${GREEN}~/.config/nvim/bin/nemo sync${NC}!"
+    echo -e "Occasionally run ${GREEN}~/.config/nvim/bin/nemo upgrade${NC}, to get the latest changes to ${PURPLE}Nvim Nemo 1${NC}."
     echo "Installation complete."
-    echo -e "Thanks for trying {BLUE}Nvim Nemo 1{NC}!"
+    echo -e "Thanks for trying ${BLUE}Nvim Nemo 1${NC}!"
 }
 
 main
