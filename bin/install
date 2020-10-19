@@ -55,6 +55,7 @@ main() {
     install_programs ripgrep ", a fast alternative to GNU grep, written in rust"
 
     if command -v ranger &> /dev/null
+    then
         install_ranger_devicons
     fi
 
