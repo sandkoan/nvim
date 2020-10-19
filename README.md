@@ -47,6 +47,7 @@ Feel free to make pull requests or open issues if you run into any issues.
 ### Configuration
 * User-specific configuration can be found in [nemo](https://github.com/sandkoan/nvim/tree/master/nemo)
     * If you add or delete any plugins, make sure to run `~/.config/nvim/bin/nemo sync`
+* To stay up to date with the git repo, run `~/.config/nvim/bin/nemo upgrade`
 * Installed plugins can be found in [nemo/plugins](https://github.com/sandkoan/nvim/tree/master/nemo/plugins)
 * Configuration settings for installed plugins can be found in [plug-config](https://github.com/sandkoan/nvim/tree/master/nemo/plug-config)
     * For example, to change the file shortcuts in startify, edit `nemo/plug-config/startify.vim`
