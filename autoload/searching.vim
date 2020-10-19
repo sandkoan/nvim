@@ -83,12 +83,17 @@ endfunction
 " Edit files in current directory
 function! searching#FindLocalFile()
     if executable('fd')
-        let choice = searching#Finder('fd --type file --hidden --no-ignore .', "Choose file")
+        let choice = searching#Finder('fd --type f --hidden --follow --no-ignore-vcs --exclude .git', "Choose file")
+        if !empty(choice)
+            execute "edit" choice[0]
+        endif
+    elseif executable('fdfind')
+        let choice = searching#Finder('fdfind --type f --hidden --follow --no-ignore-vcs --exclude .git', "Choose file")
         if !empty(choice)
             execute "edit" choice[0]
         endif
     elseif executable('rg')
-        let choice = searching#Finder('rg --files --hidden .', "Choose file")
+        let choice = searching#Finder('rg --files --no-ignore-vcs --hidden --glob !.git', "Choose file")
         if !empty(choice)
             execute "edit" choice[0]
         endif
