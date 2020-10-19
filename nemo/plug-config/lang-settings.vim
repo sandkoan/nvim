@@ -9,15 +9,13 @@ let g:markdown_fenced_languages = ['bash=sh', 'zsh', 'python', 'java', 'css',
 let python_highlight_all = 1
 
 " RST
-let rst_syntax_code_list = ['sh', 'zsh', 'python', 'java', 'css', 'html', 
-            \ 'cpp', 'c', 'perl', 'ruby', 'vim', 'go', 'rust']
 let rst_use_emphasis_colors = 1
 let rst_fold_enabled = 1
 
 " Rust
 let g:rust_conceal = 1
-let g:rust_conceal_mod_path = 1
-let g:rust_conceal_pub = 1
+" let g:rust_conceal_mod_path = 1
+" let g:rust_conceal_pub = 1
 let g:rust_fold = 2
 let g:rustfmt_autosave = 1
 
