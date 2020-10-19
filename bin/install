@@ -59,7 +59,7 @@ main() {
         install_ranger_devicons
     fi
 
-    [ -d "~/.config/nvim" ] && mv "~/.config/nvim" "~/.config/nvim_old"
+    [[ -d ~/.config/nvim ]] && mv ~/.config/nvim ~/.config/nvim_old && echo 'Renaming `nvim` config directory to `nvim_old`.'
     git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
 }
 
