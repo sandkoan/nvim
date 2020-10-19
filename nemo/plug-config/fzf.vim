@@ -12,11 +12,11 @@ if executable('fzf')
     let g:fzf_history_dir = '~/.local/share/fzf-history'
     let g:fzf_buffers_jump = 1
 
-    " map <C-f> :Files<CR>
-    " map <leader>b :Buffers<CR>
-    " nnoremap <leader>g :Rg<CR>
-    " nnoremap <leader>t :Tags<CR>
-    " nnoremap <leader>m :Marks<CR>
+    map <C-f> :Files<CR>
+    map <leader>fb :Buffers<CR>
+    nnoremap <leader>fg :Rg<CR>
+    nnoremap <leader>ft :Tags<CR>
+    nnoremap <leader>fm :Marks<CR>
 
     if executable('ctags')
         let g:fzf_tags_command = 'ctags -R'
