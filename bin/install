@@ -11,21 +11,25 @@ identify_distro() {
     if cat /etc/*-release | egrep -qi "manjaro|arch"
     then
         os="arch"
-        sudo pacman -S neovim git
+        echo -e "Your {GREEN}distribution{NC} has been identified to be an {BLUE}Arch{NC} derivative."
+        echo -e "Installing {RED}git{NC}..."
+        sudo pacman -S git
     elif cat /etc/*-release | egrep -qi "debian|ubuntu"
     then
         os="debian"
-        sudo apt install neovim git
+        echo -e "Your {GREEN}distribution{NC} has been identified to be a {BLUE}Debian{NC} derivative."
+        echo -e "Installing {RED}git{NC}..."
+        sudo apt install git
     else
         echo 'Your Linux distribution is not yet supported.'
-        echo 'Currently, only arch/manjaro and debian/ubuntu are supported'
+        echo -e "Currently, only {BLUE}Arch/Manjaro{NC} and {BLUE}Debian/Ubuntu{NC} are supported."
         echo 'Please proceed with the installation manually.'
         exit 1
     fi
 }
 
 install_programs() {
-    echo "Would you like to install $1 $2?"
+    echo -e "Would you like to install {GREEN}$1{NC} $2?"
     select yn in "Yes" "No"; do
         case $yn in
             Yes ) 
@@ -45,12 +49,12 @@ install_programs() {
 install_ranger_devicons() {
     if grep -qs "default_linemode devicons" ~/.config/ranger/rc.conf
     then
-        echo 'Ranger devicons have already been installed.'
+        echo -e "{GREEN}Ranger devicons{NC} have already been installed."
     else
         mkdir -p ~/.config/ranger/plugins/ranger_devicons
         echo -e "default_linemode devicons\nset show_hidden true" >> ~/.config/ranger/rc.conf
         git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
-        echo 'Ranger devicons have been installed.'
+        echo -e "{GREEN}Ranger devicons{NC} have been installed."
     fi
 }
 
@@ -67,12 +71,12 @@ main() {
         install_ranger_devicons
     fi
 
-    [[ -d ~/.config/nvim ]] && mv ~/.config/nvim ~/.config/nvim_old && echo 'Renaming `nvim` config directory to `nvim_old`.'
+    [[ -d ~/.config/nvim ]] && mv ~/.config/nvim ~/.config/nvim_old && echo -e "Renaming {BLUE}nvim{NC} config directory to {GREEN}nvim_old{NC}."
     
     git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
-    echo 'If you haven\'t already done so, make sure to install a Nerd Font from https://github.com/ryanoasis/nerd-fonts.'
-    echo 'Make sure to run ~/.config/nvim/bin/nemo upgrade now, or whenever you add/remove any plugins.'
-    echo 'Installation complete.'
-    echo 'Thanks for trying Nvim Nemo 1'
+    echo -e "If you have not installed a {RED}Nerd Font{NC} from https://github.com/ryanoasis/nerd-fonts, please do so."
+    echo -e "Make sure to run {GREEN}~/.config/nvim/bin/nemo upgrade{NC} now, and whenever you add/remove any plugins."
+    echo "Installation complete."
+    echo -e "Thanks for trying {BLUE}Nvim Nemo 1{NC}!"
 }
 main
