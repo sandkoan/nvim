@@ -18,6 +18,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdcommenter'
 Plug 'mbbill/undotree'
 
+Plug 'sandkoan/mkdir.vim'
+
 Plug 'rakr/vim-one' " Color scheme
 Plug 'mhinz/vim-startify' " Start screen
 Plug 'liuchengxu/vim-which-key' " Leader popup
