@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Installation script
+
 # Colors
 BLUE='\033[0;34m'
 RED='\033[0;31m'
@@ -72,13 +74,19 @@ main() {
     fi
 
     [[ -d ~/.config/nvim ]] && mv ~/.config/nvim ~/.config/nvim_old && echo -e "Renaming {BLUE}nvim{NC} config directory to {GREEN}nvim_old{NC}."
-    
+
     git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
-    
-    echo -e "If you have not installed a {RED}Nerd Font{NC} from https://github.com/ryanoasis/nerd-fonts,\n
-    \ please do so after the installation script is complete."
-    echo -e "Running {GREEN}~/.config/nvim/bin/nemo upgrade{NC} now."
+
+    echo -e "If you have not installed a {RED}Nerd Font{NC} from https://github.com/ryanoasis/nerd-fonts,\nplease do so after the installation script is complete."
+
+    ~/.config/nvim/bin/nemo upgrade
+
+    echo -e "Running {GREEN}~/.config/nvim/bin/nemo upgrade{NC} now. This will install and update plugins as necessary."
+
+    echo -e "Whenever you make any changes to installed plugins, make sure to run {GREEN}~/.config/nvim/bin/nemo sync{NC}!"
+    echo -e "To get the latest changes from the git repository, make sure to run {GREEN}~/.config/nvim/bin/nemo upgrade{NC}."
     echo "Installation complete."
     echo -e "Thanks for trying {BLUE}Nvim Nemo 1{NC}!"
 }
+
 main
