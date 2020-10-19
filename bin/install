@@ -24,7 +24,7 @@ identify_distro() {
         sudo apt install git
     else
         echo 'Your Linux distribution is not yet supported.'
-        echo -e "Currently, only ${BLUE}Arch/Manjaro${NC} and {BLUE}Debian/Ubuntu{NC} are supported."
+        echo -e "Currently, only ${BLUE}Arch/Manjaro${NC} and ${BLUE}Debian/Ubuntu${NC} are supported."
         echo 'Please proceed with the installation manually.'
         exit 1
     fi
