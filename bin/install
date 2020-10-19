@@ -61,6 +61,9 @@ main() {
 
     [[ -d ~/.config/nvim ]] && mv ~/.config/nvim ~/.config/nvim_old && echo 'Renaming `nvim` config directory to `nvim_old`.'
     git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
+    echo 'If you haven't already done so, make sure to install a Nerd Font from https://github.com/ryanoasis/nerd-fonts.'
+    echo 'All done...'
+    echo 'Thanks for trying `Nvim Nemo 1`'
 }
 
 main
