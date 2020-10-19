@@ -74,8 +74,10 @@ main() {
     [[ -d ~/.config/nvim ]] && mv ~/.config/nvim ~/.config/nvim_old && echo -e "Renaming {BLUE}nvim{NC} config directory to {GREEN}nvim_old{NC}."
     
     git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
-    echo -e "If you have not installed a {RED}Nerd Font{NC} from https://github.com/ryanoasis/nerd-fonts, please do so."
-    echo -e "Make sure to run {GREEN}~/.config/nvim/bin/nemo upgrade{NC} now, and whenever you add/remove any plugins."
+    
+    echo -e "If you have not installed a {RED}Nerd Font{NC} from https://github.com/ryanoasis/nerd-fonts,\n
+    \ please do so after the installation script is complete."
+    echo -e "Running {GREEN}~/.config/nvim/bin/nemo upgrade{NC} now."
     echo "Installation complete."
     echo -e "Thanks for trying {BLUE}Nvim Nemo 1{NC}!"
 }
