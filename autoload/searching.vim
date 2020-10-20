@@ -2,6 +2,11 @@
 " TODO: Integrate these with the newly added vim patch
 " For fuzzy searching -> called 'matchfuzzy'
 
+if exists('g:loaded_search')
+    finish
+endif
+let g:loaded_search = 1
+
 function! searching#FilterClose(bufnr)
     wincmd p
     execute "bwipe" a:bufnr
