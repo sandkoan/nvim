@@ -1,5 +1,5 @@
 " Interactive fuzzy finder
-" TODO Integrate these with the newly added vim patch
+" TODO: Integrate these with the newly added vim patch
 " For fuzzy searching -> called 'matchfuzzy'
 
 function! searching#FilterClose(bufnr)
