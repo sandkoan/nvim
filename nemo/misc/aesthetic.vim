@@ -27,6 +27,15 @@ match WhiteSpaceMol / /
 
 set showmatch
 set matchtime=3
+
+" Jump to matching parentheses with Alt-m
 nnoremap <M-m> %
-highlight MatchParen guifg=NONE guibg=NONE gui=underline cterm=underline
+
+" Underline matching parentheses
+" highlight MatchParen guifg=NONE guibg=NONE gui=underline cterm=underline
+
+" Change mathcing parentheses color to red
+highlight MatchParen guifg=#ff6c6b
+
+" Transparent Background
 highlight Normal guibg=NONE ctermbg=NONE
