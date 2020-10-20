@@ -38,13 +38,13 @@ function! searching#Finder(input, prompt) abort
             let l:filter = l:filter[:-2]
             let l:undo = empty(l:undoseq) ? 0 : remove(l:undoseq, -1)
             if l:undo
-                silent norm u
+                silent norm! u
             endif
         elseif ch >=# 0x20 " Printable character
             let l:filter .= nr2char(ch)
             let l:seq_old = get(undotree(), 'seq_cur', 0)
             try " Ignore invalid regexps
-                execute 'silent keepp g!:\m' . escape(l:filter, '~\[:') . ':norm "_dd'
+                execute 'silent keepp g!:\m' . escape(l:filter, '~\[:') . ':norm! "_dd'
             catch /^Vim\%((\a\+)\)\=:E/
                 let l:error = 1
             endtry
@@ -63,9 +63,9 @@ function! searching#Finder(input, prompt) abort
             let l:filter = ""
             redraw
         elseif ch ==# 0x0B " CTRL-K
-            norm k
+            norm! k
         elseif ch ==# 0x0A " CTRL-J
-            norm j
+            norm! j
         endif
         redraw
         echo (l:error ? "[Invalid pattern] " : "").l:prompt l:filter
