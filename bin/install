@@ -60,13 +60,19 @@ install_nvim() {
                 then
                     sudo pacman -Rs neovim
                     sudo pacman -S --needed base-devel git
-                    git clone https://aur.archlinux.org/neovim-nightly.git && builtin cd neovim-nightly && makepkg -si
+                    builtin cd $HOME
+                    git clone https://aur.archlinux.org/neovim-nightly.git
+                    builtin cd neovim-nightly
+                    makepkg -si
+                    builtin cd $HOME
+                    rm -rf neovim-nightly
                     echo -e "${BLUE}Neovim (v0.5)${NC} successfully installed."
                 else
                     sudo apt remove neovim
                     sudo add-apt-repository ppa:neovim-ppa/unstable
                     sudo apt-get update
                     sudo apt install neovim
+                    echo -e "${BLUE}Neovim (v0.5)${NC} successfully installed."
                 fi
                 break;;
             No )
@@ -96,6 +102,9 @@ install_ranger_devicons() {
 }
 
 main() {
+
+    builtin cd $HOME
+
     identify_distro
 
     install_nvim
