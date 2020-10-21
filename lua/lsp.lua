@@ -6,7 +6,7 @@ if vim.fn.has('nvim-0.5') == 1 then
     require'nvim_lsp'.clangd.setup{on_attach=require'diagnostic'.on_attach}
 
     vim.api.nvim_command('let g:diagnostic_enable_virtual_text = 1')
-    vim.api.nvim_command('let g:diagnostic_virtual_text_prefix = ' ' ')
+    vim.api.nvim_command("let g:diagnostic_virtual_text_prefix = ' '")
 
     local lsp_status = require('lsp-status')
     lsp_status.register_progress()
