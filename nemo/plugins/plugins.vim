@@ -32,6 +32,10 @@ endif
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Util Snips
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 " Colorizer
 if has('nvim-0.4')
     Plug 'norcalli/nvim-colorizer.lua'
@@ -43,7 +47,6 @@ if has('nvim-0.5')
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/completion-nvim'
     Plug 'nvim-lua/diagnostic-nvim'
-    Plug 'nvim-lua/lsp-status.nvim'
     " Treesitter
     " Plug 'nvim-treesitter/nvim-treesitter'
 endif
