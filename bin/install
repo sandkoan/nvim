@@ -79,11 +79,12 @@ install_nvim() {
                 if [[ "$os" == "arch" ]]
                 then
                     sudo pacman -S neovim
-                    echo -e "${BLUE}Neovim (v0.4.4)${NC} successfully installed."
+                    
                 else
                     sudo apt install neovim
-                    echo -e "${BLUE}Neovim (v0.4.4)${NC} successfully installed."
+                    
                 fi
+                echo -e "${BLUE}Neovim (v0.4.4)${NC} successfully installed."
                 break;;
         esac
     done
