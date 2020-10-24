@@ -12,17 +12,21 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " in. Remember to run ' ~/.config/nvim/bin/nemo sync' after modifying it!
 
 Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-surround'
 
+Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+
 Plug 'preservim/nerdcommenter'
 Plug 'mbbill/undotree'
 
 Plug 'sandkoan/mkdir.vim'
 
-Plug 'rakr/vim-one' " Color scheme
-Plug 'mhinz/vim-startify' " Start screen
-Plug 'liuchengxu/vim-which-key' " Leader popup
+" Color scheme
+Plug 'rakr/vim-one'
+"Start screen
+Plug 'mhinz/vim-startify'
+"Leader popup
+Plug 'liuchengxu/vim-which-key'
 
 if executable('ranger')
     Plug 'kevinhwang91/rnvimr', {'do': 'make sync'} " Ranger integration
@@ -32,7 +36,7 @@ endif
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Util Snips
+" Ulti Snips
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
@@ -47,9 +51,13 @@ if has('nvim-0.5')
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/completion-nvim'
     Plug 'nvim-lua/diagnostic-nvim'
+
     " Treesitter
-    " Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter'
 endif
+
+" Language specific configuration
+" Plug 'ocaml/vim-ocaml'
 
 call plug#end()
 

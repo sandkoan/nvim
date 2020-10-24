@@ -25,6 +25,9 @@ let g:tex_fold_enabled=1
 " Sh
 let g:sh_fold_enabled= 4
 
+" Ocaml
+let g:ocaml_highlight_operators = 1
+
 " Java
 let java_highlight_java_lang_ids=1
 let java_highlight_functions="style"
