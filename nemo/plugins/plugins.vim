@@ -56,9 +56,6 @@ if has('nvim-0.5')
     Plug 'nvim-treesitter/nvim-treesitter'
 endif
 
-" Language specific configuration
-" Plug 'ocaml/vim-ocaml'
-
 call plug#end()
 
 " Automatically install missing plugins on startup
