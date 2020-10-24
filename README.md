@@ -14,12 +14,6 @@ bash <(curl -s https://raw.githubusercontent.com/sandkoan/nvim/master/bin/instal
 
 If you already have an nvim configuration in `~/.config/nvim`, the `nvim` folder will be renamed to `nvim_old`.
 
-### Post installation
-1. Launch neovim, you should be met with many errors.
-2. Enter command mode (hit `<Escape>`) then type `:PlugInstall`.
-3. After installation, quit (`<Escape>`, then type `:q!`).
-4. Success! You have successfully installed `Nemo 1`.
-
 Feel free to make pull requests or open issues if you run into any issues.
 
 ### Some of the installed plugins
