@@ -1,6 +1,6 @@
 # Nvim Nemo 1
 
-![configuration="16pt JetBrainsMono font, Nord colorscheme, Qtile WM"](core/img/ConfigPic.png)
+![configuration="16pt JetBrainsMono font, Nord colorscheme, Qtile WM"](img/ConfigPic.png)
 
 A modular neovim configuration with sane, but flexible defaults.
 
