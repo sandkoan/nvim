@@ -125,7 +125,7 @@ main() {
 
     echo -e "If you have not installed a ${RED}Nerd Font${NC} from https://github.com/ryanoasis/nerd-fonts,\nplease do so after the installation script is complete."
 
-    ~/.config/nvim/bin/nemo upgrade
+    nvim --headless +PlugUpgrade +PlugInstall +PlugUpdate
 
     echo -e "Running ${GREEN}~/.config/nvim/bin/nemo upgrade${NC} now. This will install and update plugins as necessary."
 
