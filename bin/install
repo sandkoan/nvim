@@ -125,7 +125,7 @@ main() {
 
     git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
 
-    nvim --headless +'source ~/.config/nvim/init.vim' +'PlugUpgrade' +'PlugClean' +'PlugUpdate --sync' +'qa!'
+    nvim --headless +'source $MYVIMRC' +'PlugUpgrade' +'PlugClean' +'PlugUpdate --sync' +'qa!'
 
     echo "Installation complete."
 
