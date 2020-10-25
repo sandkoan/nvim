@@ -44,6 +44,9 @@ set cmdheight=2
 set visualbell
 set updatetime=50
 
+set showmatch
+set matchtime=3
+
 " Change cursor shape for iTerm2 on macOS
 " bar in Insert mode
 " inside iTerm2
