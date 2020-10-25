@@ -2,7 +2,6 @@ let mapleader="\<Space>"
 let maplocalleader=","
 
 nnoremap <Leader><CR> :so $MYVIMRC<CR>
-nnoremap <Leader>u :UndotreeToggle<CR>
 
 inoremap jk <Esc>
 inoremap kj <Esc>
