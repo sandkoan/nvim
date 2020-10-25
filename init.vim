@@ -17,17 +17,14 @@ call SourceDirectory('$HOME/.config/nvim/core/scripts')
 " Plugins
 call SourceDirectory('$HOME/.config/nvim/nemo/plugins')
 
-" User defined configuration
-source $HOME/.config/nvim/nemo/config.vim
-
 " Plugin configuration
 call SourceDirectory('$HOME/.config/nvim/nemo/plug-config')
 
+" Lua
+call LuaSourceDirectory('$HOME/.config/nvim/lua')
 
 " Misc - statuslines, etc
 call SourceDirectory('$HOME/.config/nvim/nemo/misc')
 
-call LuaSourceDirectory('$HOME/.config/nvim/lua')
-
-" User defined config file to load *after* all other config files
-source $HOME/.config/nvim/nemo/after-plugins.vim
+" User defined configuration
+source $HOME/.config/nvim/nemo/config.vim
