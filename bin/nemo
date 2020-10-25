@@ -2,9 +2,9 @@
 
 # Sync and upgrade plugins
 sync() {
-    if command -v /usr/bin/nvim &> /dev/null
+    if command -v nvim &> /dev/null
     then
-        nvim --headless +'source ~/.config/nvim/init.vim' +'PlugUpgrade' +'PlugClean' +'PlugUpdate --sync' +'qa!'
+        nvim --headless +'source $MYVIMRC' +'PlugUpgrade' +'PlugClean' +'PlugUpdate --sync' +'qa!'
         echo 'Plugins successfully synced.'
     else
         echo 'Please install neovim.'
@@ -14,7 +14,7 @@ sync() {
 
 # Get changes from git repository
 update() {
-    if command -v /usr/bin/nvim &> /dev/null
+    if command -v nvim &> /dev/null
     then
         builtin cd ~/.config/nvim && git pull || exit 1
         echo 'Nemo successfully upgraded with latest changes from git repository.'
