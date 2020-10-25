@@ -37,13 +37,33 @@ set wildignorecase
 
 " General/Aesthetic
 set nowrap
-set mouse=a
 set cursorline
 set lazyredraw
 set scrolloff=8 
 set cmdheight=2
 set visualbell
 set updatetime=50
+
+" Change cursor shape for iTerm2 on macOS
+" bar in Insert mode
+" inside iTerm2
+if $TERM_PROGRAM =~# 'iTerm'
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" inside tmux
+if exists('$TMUX') && $TERM != 'xterm-kitty'
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+endif
+
+" inside neovim
+if has('nvim')
+    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
+endif
 
 " System clipboard integration
 set clipboard=unnamedplus
@@ -63,20 +83,14 @@ else
     set undodir=~/.vim
 endif
 set undofile
-set nobackup
-set nowritebackup
+set nobackup nowritebackup
 
 " Hybrid line numbers
 set number relativenumber
 
-" Regex
-set magic
-
 " Searching
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
+set hlsearch incsearch
+set ignorecase smartcase
 if exists('&inccommand')
     set inccommand=split
 endif
