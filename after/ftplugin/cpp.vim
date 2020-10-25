@@ -1,1 +1,1 @@
-LSPSetMappings()
+call LSPSetMappings()
