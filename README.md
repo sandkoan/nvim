@@ -23,7 +23,7 @@ Feel free to make pull requests or open issues if you run into any issues.
 * Tim Pope's [vim-fugitive](https://github.com/tpope/vim-fugitive) for git integration and [vim-surround](https://github.com/tpope/vim-surround) for surrounding things
 * [Vim-which-key](https://github.com/liuchengxu/vim-which-key) for Spacemacs-style leader popup 
 
-#### Dependencies
+## Dependencies
 ### Requirements
 * [Neovim](https://neovim.io/), ideally, the nightly version (v0.5) for lsp support and treesitter
 * [Curl](https://curl.haxx.se/) to install/upgrade vim-plug
