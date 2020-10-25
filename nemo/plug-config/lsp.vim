@@ -1,6 +1,8 @@
 if has('nvim-0.5')
 
-    set completeopt=menuone,noinsert,noselect
+    set completeopt=longest,menuone
+    " set completeopt=menuone,noinsert,noselect
+    
     " Clangd
     lua require'nvim_lsp'.clangd.setup{}
     lua require'nvim_lsp'.clangd.setup{on_attach=require'completion'.on_attach}
