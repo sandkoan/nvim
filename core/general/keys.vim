@@ -55,8 +55,11 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Empty buffer prompt in wildmenu
 set wildcharm=<C-z>
-nnoremap ,e :e **/*<C-z><S-Tab>
-nnoremap ,f :find **/*<C-z><S-Tab>
+nnoremap ,e :e *<C-z><S-Tab>
+nnoremap ,f :find *<C-z><S-Tab>
+
+" nnoremap ,e :e **/*<C-z><S-Tab>
+" nnoremap ,f :find **/*<C-z><S-Tab>
 
 " Session management
 nnoremap <leader>so :OpenSession<Space>
@@ -66,6 +69,9 @@ nnoremap <leader>sc :CloseSession<CR>
 
 " Tags
 nnoremap <leader>gt :tjump /
+
+" Jump to matching parentheses with Alt-m
+nnoremap <M-m> %
 
 " Buffers
 set hidden
