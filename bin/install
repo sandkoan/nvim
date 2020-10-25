@@ -58,6 +58,7 @@ install_nvim() {
             Yes ) 
                 if [[ "$os" == "arch" ]]
                 then
+                    echo -e "Installing nvim (v0.5) through the AUR."
                     sudo pacman -Rs neovim
                     sudo pacman -S --needed base-devel git
                     builtin cd $HOME
@@ -66,23 +67,21 @@ install_nvim() {
                     makepkg -si
                     builtin cd $HOME
                     rm -rf neovim-nightly
-                    echo -e "${BLUE}Neovim (v0.5)${NC} successfully installed."
                 else
                     sudo apt remove neovim
+                    echo -e "Installing nvim (v0.5) through a ppa."
                     sudo add-apt-repository ppa:neovim-ppa/unstable
                     sudo apt-get update
                     sudo apt install neovim
-                    echo -e "${BLUE}Neovim (v0.5)${NC} successfully installed."
                 fi
+                echo -e "${BLUE}Neovim (v0.5)${NC} successfully installed."
                 break;;
             No )
                 if [[ "$os" == "arch" ]]
                 then
                     sudo pacman -S neovim
-                    
                 else
                     sudo apt install neovim
-                    
                 fi
                 echo -e "${BLUE}Neovim (v0.4.4)${NC} successfully installed."
                 break;;
@@ -103,11 +102,9 @@ install_ranger_devicons() {
 }
 
 main() {
-
     builtin cd $HOME
 
     identify_distro
-
     install_nvim
 
     install_programs xsel "for system clipboard integration"
@@ -120,17 +117,19 @@ main() {
         install_ranger_devicons
     fi
 
-    [[ -d ~/.config/nvim ]] && mv ~/.config/nvim ~/.config/nvim_old && echo -e "Renaming ${BLUE}nvim${NC} config directory to ${GREEN}nvim_old${NC}."
+    if [[ -d ~/.config/nvim ]]
+    then
+        mv ~/.config/nvim ~/.config/nvim_old
+        echo -e "Renaming ${BLUE}nvim${NC} config directory to ${GREEN}nvim_old${NC}."
+    fi
 
     git clone https://github.com/sandkoan/nvim.git ~/.config/nvim
 
-    echo -e "If you have not installed a ${RED}Nerd Font${NC} from https://github.com/ryanoasis/nerd-fonts,\nplease do so after the installation script is complete."
+    nvim --headless +'source ~/.config/nvim/init.vim' +'PlugUpgrade' +'PlugClean' +'PlugUpdate --sync' +'qa!'
 
-    nvim --headless +'PlugUpgrade' +'PlugUpdate --sync'
-
-    echo -e "Whenever you make any changes to installed plugins, make sure to run ${GREEN}~/.config/nvim/bin/nemo sync${NC}!"
-    echo -e "Occasionally run ${GREEN}~/.config/nvim/bin/nemo upgrade${NC}, to get the latest changes to ${PURPLE}Nvim Nemo 1${NC}."
     echo "Installation complete."
+
+    echo -e "If you have not installed a ${RED}Nerd Font${NC} from https://github.com/ryanoasis/nerd-fonts,\nplease do so after the installation script is complete."
     echo -e "Thanks for trying ${BLUE}Nvim Nemo 1${NC}!"
 }
 

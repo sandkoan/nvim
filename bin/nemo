@@ -1,69 +1,35 @@
 #!/usr/bin/env bash
 
-clean() {
-    if command -v /usr/bin/nvim &> /dev/null
-    then
-        nvim -c 'so ~/.config/nvim/init.vim | PlugClean'
-        echo 'Unwanted plugins successfully removed'
-    else
-        echo 'Please install neovim'
-        exit 1
-    fi
-}
-
-install() {
-    if command -v /usr/bin/nvim &> /dev/null
-    then
-        nvim -c 'so ~/.config/nvim/init.vim | PlugInstall'
-        echo 'New plugins successfully installed'
-    else
-        echo 'Please install neovim'
-        exit 1
-    fi
-}
-
-
-update() {
-    if command -v /usr/bin/nvim &> /dev/null
-    then
-        nvim -c 'so ~/.config/nvim/init.vim | PlugUpdate'
-        echo 'Plugins successfully updated'
-    else
-        echo 'Please install neovim'
-        exit 1
-    fi
-}
-
+# Sync and upgrade plugins
 sync() {
     if command -v /usr/bin/nvim &> /dev/null
     then
-        nvim -c 'so ~/.config/nvim/init.vim | PlugClean | PlugInstall | PlugUpdate'
+        nvim --headless +'source ~/.config/nvim/init.vim' +'PlugUpgrade' +'PlugClean' +'PlugUpdate --sync' +'qa!'
+        echo 'Plugins successfully synced.'
     else
-        echo 'Please install neovim'
+        echo 'Please install neovim.'
         exit 1
     fi
 }
 
-
-upgrade() {
+# Get changes from git repository
+update() {
     if command -v /usr/bin/nvim &> /dev/null
     then
-        nvim -c PlugUpgrade
-        cd ~/.config/nvim && git pull || exit 1
+        builtin cd ~/.config/nvim && git pull || exit 1
+        echo 'Nemo successfully upgraded with latest changes from git repository.'
         sync
-        echo 'Nemo successfully upgraded with latest changes'
     else
-        echo 'Please install neovim'
+        echo 'Please install neovim.'
         exit 1
     fi
 }
 
-# parse opts
-
+# Parse opts
 while [ $# -gt 0 ] ; do
     case $1 in
         -s | --sync | sync) sync ;;
-        -u | --upgrade | upgrade) upgrade ;;
+        -u | --update | update) update ;;
     esac
     shift
 done
