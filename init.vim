@@ -1,7 +1,7 @@
 " Function to source all .vim files in a directory
 function! SourceDirectory(file)
   for s:fpath in split(globpath(a:file, '*.vim'), '\n')
-    exe 'source' s:fpath
+    exe 'runtime' s:fpath
   endfor
 endfunction
 
