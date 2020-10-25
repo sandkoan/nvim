@@ -4,7 +4,7 @@
 
 A modular neovim configuration with sane, but flexible defaults.
 
-### Install the entire configuration with 
+### One Command Install
 
 ```bash 
 bash <(curl -s https://raw.githubusercontent.com/sandkoan/nvim/master/bin/install)
@@ -25,8 +25,8 @@ Feel free to make pull requests or open issues if you run into any issues.
 
 #### Dependencies
 ### Requirements
-* [Neovim](https://neovim.io/) (ideally, the nightly version for lsp support)
-* [Curl](https://curl.haxx.se/) for the installation of vim-plug
+* [Neovim](https://neovim.io/), ideally, the nightly version (v0.5) for lsp support and treesitter
+* [Curl](https://curl.haxx.se/) to install/upgrade vim-plug
 
 ### Optional (Strongly Recommended)
 * Xsel for integration with system clipboard
@@ -41,7 +41,7 @@ Feel free to make pull requests or open issues if you run into any issues.
 ### Configuration
 * User-specific configuration can be found in [nemo](https://github.com/sandkoan/nvim/tree/master/nemo)
     * If you add or delete any plugins, make sure to run `~/.config/nvim/bin/nemo sync`
-* To stay up to date with the git repo, run `~/.config/nvim/bin/nemo upgrade`
+* To stay up to date with the git repo, run `~/.config/nvim/bin/nemo update`
 * Installed plugins can be found in [nemo/plugins](https://github.com/sandkoan/nvim/tree/master/nemo/plugins)
 * Configuration settings for installed plugins can be found in [plug-config](https://github.com/sandkoan/nvim/tree/master/nemo/plug-config)
     * For example, to change the file shortcuts in startify, edit `nemo/plug-config/startify.vim`
