@@ -74,6 +74,9 @@ if has('nvim')
     let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
 endif
 
+" Enable mouse
+set mouse=a
+
 " System clipboard integration
 set clipboard=unnamedplus
 
