@@ -11,7 +11,7 @@ filetype indent on
 filetype plugin on
 
 " Indenting
-set cindent autoindent smartindent
+set autoindent
 
 " Allow for lolca (project-specific) vimrcs
 set exrc secure
