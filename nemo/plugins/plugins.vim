@@ -12,6 +12,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " in. Remember to run ' ~/.config/nvim/bin/nemo sync' after modifying it!
 
 Plug 'jiangmiao/auto-pairs'
+Plug 'andymass/vim-matchup'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
