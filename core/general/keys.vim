@@ -26,9 +26,25 @@ nnoremap gV `[v`]
 nnoremap [o o<Esc>
 nnoremap [O O<esc>
 
+" From vim unimpared
+nnoremap [a :previous
+nnoremap ]a :next
+nnoremap [A :first
+nnoremap ]A :last
+
+nnoremap [l :lprevious
+nnoremap ]l :lnext
+nnoremap [L :Lfirst
+nnoremap ]L :Llast
+
+nnoremap [q :cprevious
+nnoremap ]q :cnext
+nnoremap [Q :cfirst
+nnoremap ]Q :clast
+
 " Vmap for maintain Visual Mode after shifting > and <
-vmap < <gv
-vmap > >gv
+vnoremap < <gv
+vnoremap > >gv
 
 " Move visual block
 vnoremap J :m '>+1<CR>gv=gv
