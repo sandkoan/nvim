@@ -13,11 +13,14 @@ filetype plugin on
 " Indenting
 set cindent autoindent smartindent
 
+" Allow for lolca (project-specific) vimrcs
+set exrc secure
+
 " Autocompletion
-set dictionary=/usr/share/dict/words
+set dictionary+=/usr/share/dict/words
 
 set omnifunc=syntaxcomplete#Complete
-set complete=.,w,b,u,t,i
+set complete=.,w,b,u,t,i,k
 set path+=.,**
 
 " Wildmenu
