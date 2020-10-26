@@ -14,18 +14,29 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 Plug 'jiangmiao/auto-pairs'
 Plug 'andymass/vim-matchup'
 
+" Surrounding things
 Plug 'tpope/vim-surround'
+
+" Git wrapper
 Plug 'tpope/vim-fugitive'
 
+" Improved f/t
+Plug 'unblevable/quick-scope'
+
+" Commenting with <leader>cc
 Plug 'preservim/nerdcommenter'
+" Powerful graphical view of undotrees
 Plug 'mbbill/undotree'
 
+" Write to a directory even if it doesn't exists
 Plug 'sandkoan/mkdir.vim'
 
 " Color scheme
 Plug 'rakr/vim-one'
+
 "Start screen
 Plug 'mhinz/vim-startify'
+
 "Leader popup
 Plug 'liuchengxu/vim-which-key'
 
@@ -46,7 +57,6 @@ if has('nvim-0.4')
     Plug 'norcalli/nvim-colorizer.lua'
 endif
 
-" Nvim lsp
 if has('nvim-0.5')
     " Lsp
     Plug 'neovim/nvim-lspconfig'

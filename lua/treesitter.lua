@@ -12,10 +12,10 @@ if vim.fn.has('nvim-0.5') == 1 then
         incremental_selection = {
             enable = true,
             keymaps = {
-                init_selection = "\<Leader>t",
-                node_incremental = "\<Leader>tn",
-                scope_incremental = "\<Leader>ts",
-                node_decremental = "\<Leader>tp",
+                init_selection = "<Leader>li",
+                node_incremental = "<Leader>ln",
+                scope_incremental = "<Leader>ls",
+                node_decremental = "<Leader>lp",
             },
         },
         indent = {
