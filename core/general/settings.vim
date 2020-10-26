@@ -16,7 +16,11 @@ filetype plugin on
 " Indenting
 set autoindent
 
-" Allow for lolca (project-specific) vimrcs
+set timeout ttimeout         " separate mapping and keycode timeouts
+set timeoutlen=500           " mapping timeout 500ms  (adjust for preference)
+set ttimeoutlen=20           " keycode timeout 20ms
+
+" Allow for local (project-specific) vimrcs
 set exrc secure
 
 " Autocompletion
