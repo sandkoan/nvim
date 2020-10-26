@@ -1,7 +1,14 @@
 if has('nvim-0.5')
 
-    set completeopt=longest,menuone
-    " set completeopt=menuone,noinsert,noselect
+    " Use <Tab> and <S-Tab> to navigate through popup menu
+    inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+    inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+    " Set completeopt to have a better completion experience
+    set completeopt=menuone,noinsert,noselect
+
+    " Avoid showing message extra message when using completion
+    set shortmess+=c
 
     " Clangd
     lua require'nvim_lsp'.clangd.setup{}
@@ -13,12 +20,19 @@ if has('nvim-0.5')
     lua require'nvim_lsp'.ocamllsp.setup{on_attach=require'completion'.on_attach}
     lua require'nvim_lsp'.ocamllsp.setup{on_attach=require'diagnostic'.on_attach}
 
+    " Python
+    lua require'nvim_lsp'.pyls.setup{}
+    lua require'nvim_lsp'.pyls.setup{on_attach=require'completion'.on_attach}
+    lua require'nvim_lsp'.pyls.setup{on_attach=require'diagnostic'.on_attach}
+
     let g:diagnostic_enable_virtual_text = 1
     let g:diagnostic_virtual_text_prefix = ' '
-    let g:completion_enable_snippet = 'UltiSnips'
 
-    nnoremap <Tab> <Plug>(completion_smart_tab)
-    nnoremap <S-Tab> <Plug>(completion_smart_s_tab)
+    let g:completion_enable_snippet = 'UltiSnips'
+    let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
+    let g:completion_matching_smart_case = 1
+    " nnoremap <Tab> <Plug>(completion_smart_tab)
+    " nnoremap <S-Tab> <Plug>(completion_smart_s_tab)
 
     function! LSPSetMappings()
         setlocal omnifunc=v:lua.vim.lsp.omnifunc
@@ -34,4 +48,5 @@ if has('nvim-0.5')
         nnoremap <buffer> <silent> gW           <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
         nnoremap <buffer> <silent> gd           <cmd>lua vim.lsp.buf.declaration()<CR>
     endfunction
+
 endif

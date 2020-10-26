@@ -41,8 +41,6 @@ let g:startify_lists = [
           \ ]
 
 let g:startify_bookmarks = [
-            \ { 'i': '~/.config/nvim/' },
-            \ { 'c': '~/.config/qtile/config.py' },
-            \ { 'z': '~/.zshrc' },
+            \ { 'i': '~/.config/nvim/init.vim' },
             \ '~/Code/',
             \ ]

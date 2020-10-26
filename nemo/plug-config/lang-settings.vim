@@ -35,5 +35,11 @@ let java_highlight_functions="style"
 " hi link javaParen1 
 " hi link javaParen2
 
+
+" Vim
+let g:vimsyn_embed= 'l'
+
+
+
 " Zsh
 let g:zsh_fold_enable = 1
