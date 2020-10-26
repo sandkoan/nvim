@@ -12,12 +12,6 @@ if executable('fzf')
     let g:fzf_history_dir = '~/.local/share/fzf-history'
     let g:fzf_buffers_jump = 1
 
-    map <C-f> :Files<CR>
-    map <leader>fb :Buffers<CR>
-    nnoremap <leader>fg :Rg<CR>
-    nnoremap <leader>ft :Tags<CR>
-    nnoremap <leader>fm :Marks<CR>
-
     if executable('ctags')
         let g:fzf_tags_command = 'ctags -R'
     endif
@@ -48,6 +42,14 @@ if executable('fzf')
     command! -bang -nargs=? -complete=dir Files
                 \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--inline-info']}), <bang>0)
 
+
+    " Git grep
+    command! -bang -nargs=* GGrep
+                \ call fzf#vim#grep(
+                \   'git grep --line-number '.shellescape(<q-args>), 0,
+                \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
+
+
     if executable('rg')
         " Get text in files with Rg
         " command! -bang -nargs=* Rg
@@ -72,12 +74,17 @@ if executable('fzf')
         endfunction
 
         command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
+        " nnoremap <Leader>sr :Rg<CR>
+        nnoremap <Leader>sr :RG<CR>
+
     endif
 
-    " Git grep
-    command! -bang -nargs=* GGrep
-                \ call fzf#vim#grep(
-                \   'git grep --line-number '.shellescape(<q-args>), 0,
-                \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
-endif
+    nnoremap <Leader>sg :GGrep<CR>
+    nnoremap <Leader>sf :Files<CR>
+    nnoremap <Leader>sb :Buffers<CR>
 
+    nnoremap <Leader>st :Tags<CR>
+    nnoremap <Leader>sm :Marks<CR>
+
+endif
