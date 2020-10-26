@@ -36,5 +36,5 @@ if !exists('g:GtkGuiLoaded')
     highlight Normal guibg=NONE ctermbg=NONE
 else
     call rpcnotify(1, 'Gui', 'Font', 'JetBrainsMono Nerd Font 14')
-    NGTransparency .5 .5
+    " NGTransparency .5 .5
 endif
