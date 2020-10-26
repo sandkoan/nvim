@@ -36,10 +36,8 @@ let java_highlight_functions="style"
 " hi link javaParen2
 
 
-" Vim
-let g:vimsyn_embed= 'l'
-
-
+" Vim highlight embedded languages
+let g:vimsyn_embed= 'lPr'
 
 " Zsh
 let g:zsh_fold_enable = 1
