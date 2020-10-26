@@ -1,6 +1,8 @@
 " Settings
 
-set nocompatible
+" Apparently not needed
+" set nocompatible
+
 set encoding=utf-8
 set fileformat=unix
 
