@@ -64,9 +64,12 @@ nnoremap <Leader>, :nohl<CR>
 inoremap <C-@> <C-Space>
 inoremap <C-Space> <C-P>
 
-" Tab trhough completion pop up menu
+" Tab through completion pop up menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " Empty buffer prompt in wildmenu
 set wildcharm=<C-z>
