@@ -82,12 +82,15 @@ set history=10000
 " set winwidth=79
 " set winheight=50
 
-"Undodir + Backups
-if has('nvim')
-    set undodir=~/.config/nvim/undodir
-else
-    set undodir=~/.vim
+if has('macunix') || has('unix')
+" Undodir + Backups
+    if has('nvim')
+        set undodir=~/.config/nvim/undodir
+    else
+        set undodir=~/.vim/undodir
+    endif
 endif
+
 set undofile
 set nobackup nowritebackup
 
