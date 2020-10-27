@@ -46,9 +46,14 @@ nnoremap ]Q :clast
 vnoremap < <gv
 vnoremap > >gv
 
-" Move visual block
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
+" Move visual block {{{
+" vnoremap J :m '>+1<CR>gv=gv
+" vnoremap K :m '<-2<CR>gv=gv
+nnoremap <M-j> mz:m+<cr>`z 
+nnoremap <M-k> mz:m-2<cr>`z 
+vnoremap <M-j> :m'>+<cr>`<my`>mzgv`yo`z 
+vnoremap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z 
+"}}}
 
 " Split a line into two at the cursor
 nnoremap <C-j> ciW<CR><Esc>:if match( @", "^\\s*$") < 0<Bar>exec "norm P-$diw+"<Bar>endif<CR>
