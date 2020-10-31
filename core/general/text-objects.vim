@@ -3,10 +3,10 @@
 " i_ i. i: i, i; i| i/ i\ i* i+ i- i#
 " a_ a. a: a, a; a| a/ a\ a* a+ a- a#
 for char in [ '_', '.', ':', ',', ';', '<bar>', '/', '<bslash>', '*', '+', '-', '#' ]
-	execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'
-	execute 'onoremap i' . char . ' :normal vi' . char . '<CR>'
-	execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<CR>'
-	execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
+    execute 'xnoremap i' . char . ' :<C-u>normal! T' . char . 'vt' . char . '<CR>'
+    execute 'onoremap i' . char . ' :normal vi' . char . '<CR>'
+    execute 'xnoremap a' . char . ' :<C-u>normal! F' . char . 'vf' . char . '<CR>'
+    execute 'onoremap a' . char . ' :normal va' . char . '<CR>'
 endfor
 
 " line text objects
@@ -21,9 +21,9 @@ onoremap al :<C-u>normal val<CR>
 " --------------------------------------
 " in
 function! VisualNumber()
-	call search('\d\([^0-9\.]\|$\)', 'cW')
-	normal v
-	call search('\(^\|[^0-9\.]\d\)', 'becW')
+    call search('\d\([^0-9\.]\|$\)', 'cW')
+    normal v
+    call search('\(^\|[^0-9\.]\d\)', 'becW')
 endfunction
 xnoremap in :<C-u>call VisualNumber()<CR>
 onoremap in :<C-u>normal vin<CR>
