@@ -53,6 +53,7 @@ set scrolloff=8
 set cmdheight=2
 set visualbell
 set updatetime=50
+set showcmd
 
 set showmatch
 set matchtime=3
