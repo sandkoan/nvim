@@ -60,7 +60,7 @@ install_nvim() {
                 then
                     echo -e "Installing nvim (v0.5) through the AUR."
                     sudo pacman -Rs neovim
-                    sudo pacman -S --needed base-devel git
+                    sudo pacman -S --needed base-devel
                     builtin cd $HOME
                     git clone https://aur.archlinux.org/neovim-nightly.git
                     builtin cd neovim-nightly
