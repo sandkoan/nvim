@@ -21,17 +21,11 @@ augroup quickfix
     autocmd QuickFixCmdPost lgetexpr lwindow
 augroup END
 
-" Navigate errors in quicklist
+" Fuzzy navigate errors in quicklist
 " nnoremap <leader>qf :call searching#QuickFilter()<CR>
 
 " Edit recent files
 " nnoremap <leader>fr :call searching#FindRecentFiles()<CR>
 
-" Very powerful searching
-" set wildcharm=<C-z>
-" Recursive
-" nnoremap <leader>er :e **/*<C-z><S-Tab>
-" nnoremap <leader>fr :find **/*<C-z><S-Tab>
-
-" Search under directly of current file
+" Search under directory of current file
 " nnoremap <leader>ff :call searching#FindLocalFile()<CR>

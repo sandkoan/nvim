@@ -27,9 +27,6 @@ call SourceDirectory('$HOME/.config/nvim/nemo/plugins')
 " Plugin configuration
 call SourceDirectory('$HOME/.config/nvim/nemo/plug-config')
 
-" Lua
-call LuaSourceDirectory('$HOME/.config/nvim/lua')
-
 " Misc - statuslines, etc
 call SourceDirectory('$HOME/.config/nvim/nemo/misc')
 
