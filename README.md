@@ -6,8 +6,12 @@ A modular neovim configuration with sane, but flexible defaults.
 
 ### One Command Install
 
-```bash 
+```bash
+# With curl
 bash <(curl -s https://raw.githubusercontent.com/sandkoan/nvim/master/bin/install)
+
+# Or with wget
+bash <(wget -qO- https://raw.githubusercontent.com/sandkoan/nvim/master/bin/install)
 ```
 
 **Note: This installation script only works on Ubuntu/Debian and Manjaro/Arch.**
