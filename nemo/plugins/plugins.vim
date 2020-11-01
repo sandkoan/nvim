@@ -2,7 +2,7 @@
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
     silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    "autocmd VimEnter * PlugInstall
+    " autocmd VimEnter * PlugInstall
     autocmd VimEnter * PlugInstall | source $MYVIMRC
 endif
 
@@ -11,33 +11,37 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " This file controls what nemo plugins are enabled and what order they load
 " in. Remember to run ' ~/.config/nvim/bin/nemo sync' after modifying it!
 
+" Autoclose pairs of "", [], {}, and more
 Plug 'jiangmiao/auto-pairs'
+
+" Better matchit
 Plug 'andymass/vim-matchup'
 
 " Surrounding things
 Plug 'tpope/vim-surround'
 
-" Git wrapper
+" Awesome git wrapper
 Plug 'tpope/vim-fugitive'
+
+" Commenting with variations on gcc
+Plug 'tpope/vim-commentary'
 
 " Improved f/t
 Plug 'unblevable/quick-scope'
 
-" Commenting with <leader>cc
-Plug 'preservim/nerdcommenter'
 " Powerful graphical view of undotrees
 Plug 'mbbill/undotree'
 
-" Write to a directory even if it doesn't exists
+" Write to a file in a directory even if it doesn't exist yet
 Plug 'sandkoan/mkdir.vim'
 
 " Color scheme
 Plug 'rakr/vim-one'
 
-"Start screen
+" Start screen
 Plug 'mhinz/vim-startify'
 
-"Leader popup
+" Leader popup
 Plug 'liuchengxu/vim-which-key'
 
 if executable('ranger')
@@ -48,9 +52,8 @@ endif
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Ulti Snips
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Snippets
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " Colorizer
 if has('nvim-0.4')
