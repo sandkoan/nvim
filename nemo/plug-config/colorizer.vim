@@ -1,4 +1,5 @@
 if has('nvim-0.4')
+    set termguicolors
 lua << EOF
 require'colorizer'.setup(
 {'*';},

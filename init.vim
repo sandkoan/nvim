@@ -9,15 +9,6 @@ function! SourceDirectory(file)
   endfor
 endfunction
 
-" Function to source all .lua files in a directory
-function! LuaSourceDirectory(file)
-  for s:fpath in split(globpath(a:file, '*.lua'), '\n')
-    exe 'luafile' s:fpath
-  endfor
-endfunction
-
-set termguicolors
-
 call SourceDirectory('$HOME/.config/nvim/core/general')
 call SourceDirectory('$HOME/.config/nvim/core/scripts')
 
