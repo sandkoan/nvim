@@ -1,49 +1,27 @@
-let s:comment_map = { 
-    \   "c": '\/\/',
-    \   "cpp": '\/\/',
-    \   "go": '\/\/',
-    \   "java": '\/\/',
-    \   "javascript": '\/\/',
-    \   "lua": '--',
-    \   "scala": '\/\/',
-    \   "php": '\/\/',
-    \   "python": '#',
-    \   "ruby": '#',
-    \   "rust": '\/\/',
-    \   "sh": '#',
-    \   "desktop": '#',
-    \   "fstab": '#',
-    \   "conf": '#',
-    \   "profile": '#',
-    \   "bashrc": '#',
-    \   "bash_profile": '#',
-    \   "mail": '>',
-    \   "eml": '>',
-    \   "bat": 'REM',
-    \   "ahk": ';',
-    \   "vim": '"',
-    \   "tex": '%',
-    \ }
+" Inspired by Tim Pope's commentary.vim
+"
+" Uses b:commentstring or 'commentstring' as the comment pattern
+" example:
+"    let &commentstring = '/*%s*/'
+ 
+" nnoremap gcc :<c-u>.,.+<c-r>=v:count<cr>call <SID>toggleComment()<cr>
+" nnoremap gc :<c-u>set opfunc=<SID>commentOp<cr>g@
+" xnoremap gc :call <SID>toggleComment()<cr>
 
-function! ToggleComment()
-    if has_key(s:comment_map, &filetype)
-        let comment_leader = s:comment_map[&filetype]
-        if getline('.') =~ "^\\s*" . comment_leader . " " 
-            " Uncomment the line
-            execute "silent s/^\\(\\s*\\)" . comment_leader . " /\\1/"
-        else 
-            if getline('.') =~ "^\\s*" . comment_leader
-                " Uncomment the line
-                execute "silent s/^\\(\\s*\\)" . comment_leader . "/\\1/"
-            else
-                " Comment the line
-                execute "silent s/^\\(\\s*\\)/\\1" . comment_leader . " /"
-            end
-        end
-    else
-        echo "No comment leader found for filetype"
-    end
+function! s:commentOp(...)
+  '[,']call s:toggleComment()
 endfunction
-
-" nnoremap <leader>cc :call ToggleComment()<cr>
-" vnoremap <leader>cc :call ToggleComment()<cr>
+ 
+function! s:toggleComment() range
+  let comment = substitute(get(b:, 'commentstring', &commentstring), '\s*\(%s\)\s*', '%s', '')
+  let pattern = '\V' . printf(escape(comment, '\'), '\(\s\{-}\)\s\(\S\.\{-}\)\s\=')
+  let replace = '\1\2'
+  if getline('.') !~ pattern
+    let indent = matchstr(getline('.'), '^\s*')
+    let pattern = '^' . indent . '\zs\(\s*\)\(\S.*\)'
+    let replace = printf(comment, '\1 \2' . (comment =~ '%s$' ? '' : ' '))
+  endif
+  for lnum in range(a:firstline, a:lastline)
+    call setline(lnum, substitute(getline(lnum), pattern, replace, ''))
+  endfor
+endfunction
