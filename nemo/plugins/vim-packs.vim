@@ -1,3 +1,3 @@
-packadd cfilter
-packadd shellmenu
-packadd termdebug
+packadd! cfilter
+packadd! shellmenu
+packadd! termdebug
