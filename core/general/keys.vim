@@ -90,9 +90,6 @@ nnoremap <leader>ss :SaveSession<Space>
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
-" Tags
-nnoremap <leader>gt :tjump /
-
 " Jump to matching parentheses with Alt-m
 nnoremap <M-m> %
 
@@ -110,7 +107,6 @@ nnoremap <leader>Bp :sbuffer <C-z><S-Tab>
 
 " Flying with buffers
 nnoremap <C-b> :ls<CR>:b<Space>
-nnoremap <leader>bo :b#<CR>
 
 " Windows
 " Creating splits
