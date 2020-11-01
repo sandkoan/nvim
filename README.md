@@ -24,7 +24,7 @@ Feel free to make pull requests or open issues if you run into any issues.
 * Plugin manager is [vim-plug](https://github.com/junegunn/vim-plug)
 * Powerful fuzzy searching with [fzf](https://github.com/junegunn/fzf.vim)
 * [Rnvimr](https://github.com/kevinhwang91/rnvimr), a plugin that allows you to use Ranger instead of netrw for file exploration
-* Tim Pope's [vim-fugitive](https://github.com/tpope/vim-fugitive) for git integration and [vim-surround](https://github.com/tpope/vim-surround) for surrounding things
+* Tim Pope's [vim-fugitive](https://github.com/tpope/vim-fugitive) for git integration, [vim-surround](https://github.com/tpope/vim-surround) for surrounding things, and [vim-commentary](https://github.com/tpope/vim-commentary) for commenting
 * [Vim-which-key](https://github.com/liuchengxu/vim-which-key) for Spacemacs-style leader popup 
 
 ## Dependencies
