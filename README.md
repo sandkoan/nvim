@@ -40,7 +40,7 @@ Feel free to make pull requests or open issues if you run into any issues.
 
 ### Truly Optional
 * [Bat](https://github.com/sharkdp/bat), for syntax-highlighted preview with fzf
-* [Fd](https://github.com/sharkdp/fd), a simple, fast user-friendly alternative to GNU find, written in rust
+* [Fd](https://github.com/sharkdp/fd), a fast user-friendly alternative to GNU find, written in rust
 
 ### Configuration
 * User-specific configuration can be found in [nemo](https://github.com/sandkoan/nvim/tree/master/nemo)
