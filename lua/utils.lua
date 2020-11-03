@@ -6,13 +6,14 @@ local api = vim.api
 function M.blameVirtText()
     local ro = vim.bo.readonly -- boolean with readonly status
     local ft = vim.bo.filetype -- get the current filetype
-    if ro == true then
+    local mo = vim.bo.modifiable -- get the current filetype
+    if ro == true then -- readonly
         return
     end
-    if ft == '' then -- if we are in a scratch buffer or unknown filetype
+    if mo == false then -- nonmodifiable
         return
     end
-    if ft == 'bin' then -- if we are in nvim's terminal window
+    if ft == '' or ft == 'bin' or ft == 'qf' or ft == 'll' then
         return
     end
     api.nvim_buf_clear_namespace(0, 2, 0, -1) -- clear out virtual text from namespace 2 (the namespace we will set later)
