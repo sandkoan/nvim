@@ -4,10 +4,10 @@ local api = vim.api
 
 
 function M.blameVirtText()
-    local ro = vim.bo.readonly -- boolean with readonly status
+
     local ft = vim.bo.filetype -- get the current filetype
-    local mo = vim.bo.modifiable -- get the current filetype
-    if ro == true or mo == false then -- readonly or nonmodifiable
+
+    if vim.bo.readonly == true or vim.bo.modifiable == false then -- readonly or nonmodifiable
         return
     end
     if ft == '' or ft == 'bin' or ft == 'qf' or ft == 'll' then
