@@ -8,9 +8,8 @@ let g:markdown_fenced_languages = ['bash=sh', 'zsh', 'python', 'java', 'css',
 " Python
 let python_highlight_all = 1
 " Working with virtualenvs causes nvim's python interpreter to get confused
-" So I created a separate pipenv for nvim's python interpreter, like `pynvim`
-" This is the path to the virtualenv's python executable
-" Modify as necessary
+" So I created a separate pipenv for nvim's python interpreter, with modules like `pynvim`
+" This is the path to the virtualenv's python executable, modify as necessary
 if executable('/home/govindg/.local/share/virtualenvs/nvim-PqFkcQ4L/bin/python')
     let g:python3_host_prog = '/home/govindg/.local/share/virtualenvs/nvim-PqFkcQ4L/bin/python'
 endif
