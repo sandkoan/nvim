@@ -1,15 +1,11 @@
--- in utils.lua
 local M = {}
 local api = vim.api
 
-
 function M.blameVirtText()
-
-    local ft = vim.bo.filetype -- get the current filetype
-
-    if vim.bo.readonly == true or vim.bo.modifiable == false then -- readonly or nonmodifiable
+    if vim.bo.readonly == true or vim.bo.modifiable == false then
         return
     end
+    local ft = vim.bo.filetype -- get the current filetype
     if ft == '' or ft == 'bin' or ft == 'qf' or ft == 'll' then
         return
     end
