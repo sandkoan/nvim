@@ -23,8 +23,10 @@ set ttimeoutlen=20           " keycode timeout 20ms
 " Allow for local (project-specific) vimrcs
 set exrc secure
 
-" Autocompletion
-set dictionary+=/usr/share/dict/words
+" Dictionary Autocompletion
+if filereadable('/usr/share/dict/words')
+    set dictionary+=/usr/share/dict/words
+endif
 
 set omnifunc=syntaxcomplete#Complete
 set complete=.,w,b,u,t,i,k
