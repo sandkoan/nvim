@@ -98,10 +98,20 @@ endif
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
-"Folding
+" Folding
 set foldenable
-set foldlevelstart=20
+set foldlevelstart=2
 set foldnestmax=20
+
+function! MyFoldText()
+    let line = getline(v:foldstart)
+    let folded_line_num = v:foldend - v:foldstart
+    let line_text = substitute(line, '^"{\+', '', 'g')
+    let fillcharcount = &textwidth - len(line_text) - len(folded_line_num)
+    return '+'. repeat('-', 4) . line_text . repeat('.', fillcharcount) . ' (' . folded_line_num . ' L)'
+endfunction
+set foldtext=MyFoldText()
+
 
 " Smooth scrolling
 nnoremap <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
