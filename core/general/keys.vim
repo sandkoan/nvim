@@ -18,13 +18,19 @@ cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
 
-nnoremap B 0
-nnoremap E $
+nnoremap H 0
+nnoremap L $
 nnoremap gV `[v`]
+
+" More sane vertical navigation - respects columns
+nnoremap k gk
+nnoremap j gj
+vnoremap k gk
+vnoremap j gj
 
 " Insert new line in normal mode
 nnoremap [o o<Esc>
-nnoremap [O O<esc>
+nnoremap [O O<Esc>
 
 " From vim unimpared
 nnoremap [a :previous
@@ -41,6 +47,14 @@ nnoremap [q :cprevious
 nnoremap ]q :cnext
 nnoremap [Q :cfirst
 nnoremap ]Q :clast
+
+" Change text without putting the text into register,
+" nnoremap c "_c
+" nnoremap C "_C
+" nnoremap cc "_cc
+
+" vv selects the whole line, just like dd deletes the whole line
+nnoremap vv V
 
 " Vmap for maintain Visual Mode after shifting > and <
 vnoremap < <gv
@@ -77,9 +91,9 @@ inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " Empty buffer prompt in wildmenu
-set wildcharm=<C-z>
-nnoremap ,e :e *<C-z><S-Tab>
-nnoremap ,f :find *<C-z><S-Tab>
+" set wildcharm=<C-z>
+" nnoremap ,e :e *<C-z><S-Tab>
+" nnoremap ,f :find *<C-z><S-Tab>
 
 " nnoremap ,e :e **/*<C-z><S-Tab>
 " nnoremap ,f :find **/*<C-z><S-Tab>
@@ -89,9 +103,6 @@ nnoremap <leader>so :OpenSession<Space>
 nnoremap <leader>ss :SaveSession<Space>
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
-
-" Jump to matching parentheses with Alt-m
-nnoremap <M-m> %
 
 " Buffers
 set hidden
@@ -112,7 +123,9 @@ nnoremap <C-b> :ls<CR>:b<Space>
 " Creating splits
 noremap <Leader>ws :<C-u>split<CR>
 noremap <Leader>wv :<C-u>vsplit<CR>
+" See resize-mode.vim for more maps
 
+" These are convenience maps {{{
 " Resizing splits
 nnoremap <leader>wi :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <Leader>w+ :vertical resize +5<CR>
@@ -131,6 +144,7 @@ nnoremap <leader>wH <C-w>H
 nnoremap <leader>wJ <C-w>J
 nnoremap <leader>wK <C-w>K
 nnoremap <leader>wL <C-w>K
+"}}}
 
 " Tabs
 let notabs = 0
@@ -167,9 +181,9 @@ cnoremap <C-N> <Down>
 " recall previous (older) command-line
 cnoremap <C-P> <Up>
 " back one word
-cnoremap <Esc><C-B> <S-Left>
+cnoremap <A-C-B> <S-Left>
 " forward one word
-cnoremap <Esc><C-F> <S-Right>
+cnoremap <A-C-F> <S-Right>
 
 nnoremap <silent> <Leader>S :call misc#ToggleSpellCheck()<CR>
 

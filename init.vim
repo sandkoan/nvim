@@ -1,6 +1,5 @@
 " Init file
 " This file sources all other files/directories
-" Do not Modify anythign unless you knwo what you're doing
 
 " Function to source all .vim files in a directory
 function! SourceDirectory(file)
