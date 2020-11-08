@@ -52,9 +52,12 @@ nnoremap [Q :cfirst
 nnoremap ]Q :clast
 
 " Change text without putting the text into register,
-" nnoremap c "_c
-" nnoremap C "_C
-" nnoremap cc "_cc
+nnoremap c "_c
+nnoremap C "_C
+nnoremap cc "_cc
+
+" Y consistent with C, D etc.
+nnoremap Y y$
 
 " vv selects the whole line, just like dd deletes the whole line
 nnoremap vv V
@@ -69,6 +72,9 @@ nnoremap <M-k> mz:m-2<cr>`z
 vnoremap <M-j> :m'>+<cr>`<my`>mzgv`yo`z 
 vnoremap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z 
 
+" Make <C-u> and <C-w> undoable
+inoremap <C-u> <C-g>u<C-u>
+inoremap <C-w> <C-g>u<C-w>
 
 " Split a line into two at the cursor
 nnoremap <C-j> ciW<CR><Esc>:if match( @", "^\\s*$") < 0<Bar>exec "norm P-$diw+"<Bar>endif<CR>
