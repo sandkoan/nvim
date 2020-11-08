@@ -22,3 +22,5 @@ if has("nvim")
 else
   command! -nargs=* -complete=file_in_path Make silent make!
 endif
+
+cnoreabbrev <expr> make  (getcmdtype() ==# ':' && getcmdline() ==# 'make')  ? 'Make'  : 'make'
