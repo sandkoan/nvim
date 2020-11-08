@@ -97,6 +97,39 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
 inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
+function! LocalFileCompletion()
+    lcd %:p:h
+    return "\<C-x>\<C-f>"
+endfunction
+
+" and revert it after the completion is done
+autocmd! CompleteDonePre *
+      \ if complete_info(["mode"]).mode == "files" |
+      \   lcd - |
+      \ endif
+
+inoremap <silent> <C-x><C-f> <C-R>=LocalFileCompletion()<CR>
+
+" Cverloaded ctrl space functionality
+function! CtrlSpace()
+  let l:line_until_cursor = strpart(getline('.'), 0, col('.')-1)
+  " Do file name completion if line until cursor is something like this:
+  " 'foo bar ../baz/'
+  " 'foo bar ../baz/qux'
+  " but not if like this:
+  " '<tag>content</'
+  if l:line_until_cursor =~ '\(<\)\@1<!/\f*$'
+    return LocalFileCompletion()
+  " Else, call omnicompletion if omnifunc exists
+  elseif len(&omnifunc) > 0
+    return "\<C-x>\<C-o>"
+  else
+    return "\<C-n>"
+  endif
+endfunction
+inoremap <silent> <C-Space> <C-R>=CtrlSpace()<CR>
+
+
 " Empty buffer prompt in wildmenu
 " set wildcharm=<C-z>
 " nnoremap ,e :e *<C-z><S-Tab>
