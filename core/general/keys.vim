@@ -20,13 +20,16 @@ cnoreabbrev Qall qall
 
 nnoremap H 0
 nnoremap L $
-nnoremap gV `[v`]
 
 " More sane vertical navigation - respects columns
-nnoremap k gk
-nnoremap j gj
-vnoremap k gk
-vnoremap j gj
+nnoremap <expr> k      v:count == 0 ? 'gk' : 'k'
+nnoremap <expr> j      v:count == 0 ? 'gj' : 'j'
+nnoremap <expr> <Up>   v:count == 0 ? "g\<Up>" : "\<Up>"
+nnoremap <expr> <Down> v:count == 0 ? "g\<Down>" : "\<Down>"
+vnoremap <expr> k      v:count == 0 ? 'gk' : 'k'
+vnoremap <expr> j      v:count == 0 ? 'gj' : 'j'
+vnoremap <expr> <Up>   v:count == 0 ? "g\<Up>" : "\<Up>"
+vnoremap <expr> <Down> v:count == 0 ? "g\<Down>" : "\<Down>"
 
 " Insert new line in normal mode
 nnoremap [o o<Esc>
@@ -60,14 +63,12 @@ nnoremap vv V
 vnoremap < <gv
 vnoremap > >gv
 
-" Move visual block {{{
-" vnoremap J :m '>+1<CR>gv=gv
-" vnoremap K :m '<-2<CR>gv=gv
+" Move visual block
 nnoremap <M-j> mz:m+<cr>`z 
 nnoremap <M-k> mz:m-2<cr>`z 
 vnoremap <M-j> :m'>+<cr>`<my`>mzgv`yo`z 
 vnoremap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z 
-"}}}
+
 
 " Split a line into two at the cursor
 nnoremap <C-j> ciW<CR><Esc>:if match( @", "^\\s*$") < 0<Bar>exec "norm P-$diw+"<Bar>endif<CR>
