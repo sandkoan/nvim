@@ -43,7 +43,9 @@ function! ToggleResizeMode()
         nnoremap s s
         nnoremap d d
         nnoremap f f
-        
+
+        nnoremap h h
+        nnoremap l l
         nnoremap <expr> k      v:count == 0 ? 'gk' : 'k'
         nnoremap <expr> j      v:count == 0 ? 'gj' : 'j'
         nnoremap <expr> <Up>   v:count == 0 ? "g\<Up>" : "\<Up>"
