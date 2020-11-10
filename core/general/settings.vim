@@ -64,7 +64,7 @@ set matchtime=3
 set mouse=a
 
 " System clipboard integration
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c 
