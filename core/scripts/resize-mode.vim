@@ -63,4 +63,4 @@ function! ToggleResizeMode()
     endif
 endfunction
 
-nnoremap <silent> <Leader>w :call ToggleResizeMode()<CR>
+nnoremap <silent> <Leader>wr :call ToggleResizeMode()<CR>
