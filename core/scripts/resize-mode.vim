@@ -31,7 +31,7 @@ function! ToggleResizeMode()
         nnoremap L :wincmd L    <CR>
         nnoremap = :wincmd =    <CR>
         nnoremap _ :wincmd _    <CR>
-        nnoremap + :wincmd <bar><CR>
+        nnoremap + :wincmd <Bar><CR>
         
     else
         let g:resize_active = 0
