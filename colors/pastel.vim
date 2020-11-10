@@ -35,7 +35,7 @@ if exists("syntax_on")
     syntax reset
 endif
 
-let g:colors_name = "cs"
+let g:colors_name = "pastel"
 
 let s:cterm = {}
 
