@@ -72,9 +72,9 @@ nnoremap <M-k> mz:m-2<cr>`z
 vnoremap <M-j> :m'>+<cr>`<my`>mzgv`yo`z 
 vnoremap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z 
 
-" Make <C-u> and <C-w> undoable
+" Make <C-u> and :wincmd  undoable
 inoremap <C-u> <C-g>u<C-u>
-inoremap <C-w> <C-g>u<C-w>
+inoremap :wincmd  <C-g>u<C-w>
 
 " Split a line into two at the cursor
 nnoremap <C-j> ciW<CR><Esc>:if match( @", "^\\s*$") < 0<Bar>exec "norm P-$diw+"<Bar>endif<CR>
@@ -86,9 +86,6 @@ nnoremap <leader>cd :lcd %:h<CR>
 " Turn off highlighting after search
 nnoremap <Leader>, :nohl<CR>
 
-" Remapping C-Space to autocompletion
-inoremap <C-@> <C-Space>
-inoremap <C-Space> <C-P>
 
 " Tab through completion pop up menu
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -129,6 +126,10 @@ function! CtrlSpace()
 endfunction
 inoremap <silent> <C-Space> <C-R>=CtrlSpace()<CR>
 
+" Remapping C-Space to autocompletion
+" inoremap <C-@> <C-Space>
+" inoremap <C-Space> <C-P>
+
 
 " Empty buffer prompt in wildmenu
 " set wildcharm=<C-z>
@@ -153,8 +154,8 @@ nnoremap <Leader>bk :bfirst<CR>
 nnoremap <Leader>bj :blast<CR>
 nnoremap <Leader>bd :bd<CR>
 
-nnoremap <leader>bp :buffer <C-z><S-Tab>
-nnoremap <leader>Bp :sbuffer <C-z><S-Tab>
+" nnoremap <leader>bp :buffer <C-z><S-Tab>
+" nnoremap <leader>Bp :sbuffer <C-z><S-Tab>
 
 " Flying with buffers
 nnoremap <C-b> :ls<CR>:b<Space>
@@ -165,26 +166,25 @@ noremap <Leader>ws :<C-u>split<CR>
 noremap <Leader>wv :<C-u>vsplit<CR>
 " See resize-mode.vim for more maps
 
-" These are convenience maps {{{
+" These are convenience leader maps
 " Resizing splits
 nnoremap <leader>wi :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <Leader>w+ :vertical resize +5<CR>
 nnoremap <Leader>w- :vertical resize -5<CR>
-nnoremap <leader>w= <C-w>=
+nnoremap <leader>w= :wincmd =<CR>
 
 " Navigating splits
-nnoremap <leader>wh <C-w>h
-nnoremap <leader>wj <C-w>j
-nnoremap <leader>wk <C-w>k
-nnoremap <leader>wl <C-w>l
+nnoremap <leader>wh :wincmd h<CR>
+nnoremap <leader>wj :wincmd j<CR>
+nnoremap <leader>wk :wincmd k<CR>
+nnoremap <leader>wl :wincmd l<CR>
 
 " Moving splits
-nnoremap <leader>wr <C-w>r
-nnoremap <leader>wH <C-w>H
-nnoremap <leader>wJ <C-w>J
-nnoremap <leader>wK <C-w>K
-nnoremap <leader>wL <C-w>K
-"}}}
+nnoremap <leader>wr :wincmd r<CR>
+nnoremap <leader>wH :wincmd H<CR>
+nnoremap <leader>wJ :wincmd J<CR>
+nnoremap <leader>wK :wincmd K<CR>
+nnoremap <leader>wL :wincmd K<CR>
 
 " Tabs
 let notabs = 0
@@ -205,7 +205,7 @@ nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 nnoremap <silent> <F8> :let notabs=!notabs<Bar>:if notabs<Bar>:tabo<Bar>:else<Bar>:tab ball<Bar>:tabn<Bar>:endif<CR>
 cabbrev tabv tab sview +setlocal\ nomodifiable
 
-" Emacs keybindings in Command Mode
+" Emacs key bindings in Command Mode
 " start of line
 cnoremap <C-A> <Home>
 " back one character
