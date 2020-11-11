@@ -24,7 +24,7 @@ set ttimeoutlen=20           " keycode timeout 20ms
 set exrc secure
 
 " Improved Visual-Block mode
-set virtualedit=all
+set virtualedit+=block
 
 " Dictionary Autocompletion
 if filereadable('/usr/share/dict/words')
