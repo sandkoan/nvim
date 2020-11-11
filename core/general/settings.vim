@@ -23,6 +23,9 @@ set ttimeoutlen=20           " keycode timeout 20ms
 " Allow for local (project-specific) vimrcs
 set exrc secure
 
+" Improved Visual-Block mode
+set virtualedit=all
+
 " Dictionary Autocompletion
 if filereadable('/usr/share/dict/words')
     set dictionary+=/usr/share/dict/words
@@ -57,6 +60,7 @@ set visualbell
 set updatetime=50
 set showcmd
 
+" Matching parens
 set showmatch
 set matchtime=3
 

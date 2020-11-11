@@ -6,6 +6,10 @@ nnoremap <Leader><CR> :so $MYVIMRC<CR>
 inoremap jk <Esc>
 inoremap kj <Esc>
 
+" Make <C-u> and :wincmd undoable
+inoremap <C-u> <C-g>u<C-u>
+inoremap :wincmd  <C-g>u<C-w>
+
 " Accidents
 cnoreabbrev W! w!
 cnoreabbrev Q! q!
@@ -36,20 +40,20 @@ nnoremap [o o<Esc>
 nnoremap [O O<Esc>
 
 " From vim unimpared
-nnoremap [a :previous
-nnoremap ]a :next
-nnoremap [A :first
-nnoremap ]A :last
+nnoremap [a :prev  <CR>
+nnoremap ]a :next  <CR>
+nnoremap [A :first <CR>
+nnoremap ]A :last  <CR>
 
-nnoremap [l :lprevious
-nnoremap ]l :lnext
-nnoremap [L :Lfirst
-nnoremap ]L :Llast
+nnoremap [l :lprev <CR>
+nnoremap ]l :lnext <CR>
+nnoremap [L :lfirst<CR>
+nnoremap ]L :llast <CR>
 
-nnoremap [q :cprevious
-nnoremap ]q :cnext
-nnoremap [Q :cfirst
-nnoremap ]Q :clast
+nnoremap [q :cprev <CR>
+nnoremap ]q :cnext <CR>
+nnoremap [Q :cfirst<CR>
+nnoremap ]Q :clast <CR>
 
 " Change text without putting the text into register,
 nnoremap c "_c
@@ -71,10 +75,6 @@ nnoremap <M-j> mz:m+<cr>`z
 nnoremap <M-k> mz:m-2<cr>`z 
 vnoremap <M-j> :m'>+<cr>`<my`>mzgv`yo`z 
 vnoremap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z 
-
-" Make <C-u> and :wincmd  undoable
-inoremap <C-u> <C-g>u<C-u>
-inoremap :wincmd  <C-g>u<C-w>
 
 " Split a line into two at the cursor
 nnoremap <C-j> ciW<CR><Esc>:if match( @", "^\\s*$") < 0<Bar>exec "norm P-$diw+"<Bar>endif<CR>

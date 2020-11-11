@@ -25,7 +25,16 @@ lua << EOF
         }
 
 EOF
+
+
     set foldmethod=expr
     set foldexpr=nvim_treesitter#foldexpr()
+
+    " augroup treesitter-fold
+    "     autocmd!
+    "     autocmd BufReadPost c,cpp,lua,bash,python,ocaml,go
+    "                 \ setl foldmethod=expr foldexpr=nvim_treesitter#foldexpr()
+    " augroup END
+
 endif
 
