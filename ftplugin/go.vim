@@ -1,1 +1,2 @@
-setlocal noexpandtab
+compiler go
+setlocal noexpandtab formatprg=gofmt
