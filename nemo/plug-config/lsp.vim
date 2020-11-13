@@ -17,8 +17,8 @@ lua << EOF
     require'nvim_lsp'.clangd.setup{on_attach=on_attach_vim}
 EOF
 
-let g:diagnostic_enable_virtual_text = 1
-let g:diagnostic_virtual_text_prefix = ' '
+" let g:diagnostic_enable_virtual_text = 1
+" let g:diagnostic_virtual_text_prefix = ' '
 
 let g:completion_enable_snippet = 'UltiSnips'
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy', 'all']
