@@ -26,17 +26,17 @@ let g:rust_fold = 2
 let g:rustfmt_autosave = 1
 
 " Tex
-let g:tex_fold_enabled=1
+let g:tex_fold_enabled = 1
 
 " Sh
-let g:sh_fold_enabled= 4
+let g:sh_fold_enabled = 4
 
 " Ocaml
 let g:ocaml_highlight_operators = 1
 
 " Java
-let java_highlight_java_lang_ids=1
-let java_highlight_functions="style"
+let java_highlight_java_lang_ids = 1
+let java_highlight_functions = "style"
 " hi link javaParen 
 " hi link javaParen1 
 " hi link javaParen2
