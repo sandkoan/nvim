@@ -25,6 +25,7 @@ set exrc secure
 
 " Improved Visual-Block mode
 set virtualedit+=block
+set virtualedit+=onemore
 
 " Dictionary Autocompletion
 if filereadable('/usr/share/dict/words')
