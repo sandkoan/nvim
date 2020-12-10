@@ -26,7 +26,7 @@ Plug 'tpope/vim-commentary'
 " Improved f/t
 Plug 'unblevable/quick-scope'
 
-" Powerful graphical view of undotrees
+" Powerful graphical view of undotree
 Plug 'mbbill/undotree'
 
 " Write to a file in a directory even if it doesn't exist yet
@@ -65,8 +65,6 @@ if has('nvim-0.5')
     " Treesitter
     Plug 'nvim-treesitter/nvim-treesitter', { 'commit': '3c07232'}
 endif
-
-Plug 'cespare/vim-toml'
 
 call plug#end()
 

@@ -1,7 +1,7 @@
 if has('nvim-0.5')
 lua << EOF
     require'nvim-treesitter.configs'.setup {
-            ensure_installed = { "c", "cpp", "lua", "bash", "python", "ocaml", "go" },     -- one of "all", "language", or a list of languages
+            ensure_installed = { "c", "cpp", "lua", "bash", "python", "ocaml", "go", "rust", "toml" },     -- one of "all", "language", or a list of languages
             highlight = {
                 enable = true,
                 use_languagetree = false, -- Use this to enable language injection (this is very unstable)
