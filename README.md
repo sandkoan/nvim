@@ -30,12 +30,12 @@ Feel free to make pull requests or open issues if you run into any issues.
 ## Dependencies
 ### Requirements
 * [Neovim](https://neovim.io/), ideally, the nightly version (v0.5) for lsp support and treesitter
-* [Curl](https://curl.haxx.se/) to install/upgrade vim-plug
+* [Curl](https://curl.haxx.se/) to install/upgrade vim-plug - should come installed with neovim
 
 ### Optional (Strongly Recommended)
 * Xsel for integration with system clipboard
 * [Ranger](https://github.com/ranger/ranger), a cli filemanager with vim-inspired keybindings
-* [FZF](https://github.com/junegunn/fzf) the command-line fuzzy finder
+* [FZF](https://github.com/junegunn/fzf), the command-line fuzzy finder
 * [Ripgrep](https://github.com/BurntSushi/ripgrep), a blazing fast search utility written in rust
 
 ### Truly Optional
