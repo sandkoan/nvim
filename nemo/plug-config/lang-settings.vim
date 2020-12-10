@@ -3,7 +3,8 @@ let g:lisp_rainbow = 1
 
 " Markdown syntax highlighting
 let g:markdown_fenced_languages = ['bash=sh', 'zsh', 'python', 'java', 'css', 
-            \ 'html', 'cpp', 'c', 'perl', 'ruby', 'vim', 'go', 'rust']
+            \ 'html', 'cpp', 'c', 'perl', 'ruby', 'vim', 'go', 'rust',
+            \ 'javascript', 'ocaml']
 
 " Python
 let python_highlight_all = 1
@@ -12,6 +13,10 @@ let python_highlight_all = 1
 " This is the path to the virtualenv's python executable, modify as necessary
 if executable('/home/govindg/.local/share/virtualenvs/nvim-PqFkcQ4L/bin/python')
     let g:python3_host_prog = '/home/govindg/.local/share/virtualenvs/nvim-PqFkcQ4L/bin/python'
+endif
+
+if executable( '/home/govindg/.local/share/virtualenvs/nvim-PqFkcQ4L/bin/activate')
+    let g:python3_host_prog = '/home/govindg/.local/share/virtualenvs/nvim-PqFkcQ4L/bin/activate'
 endif
 
 " RST

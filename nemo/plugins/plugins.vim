@@ -14,9 +14,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 " Autoclose pairs of "", [], {}, and more
 Plug 'jiangmiao/auto-pairs'
 
-" Better matchit
-Plug 'andymass/vim-matchup'
-
 " Surrounding things
 Plug 'tpope/vim-surround'
 
@@ -66,8 +63,10 @@ if has('nvim-0.5')
     Plug 'nvim-lua/completion-nvim'
 
     " Treesitter
-    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'nvim-treesitter/nvim-treesitter', { 'commit': '3c07232'}
 endif
+
+Plug 'cespare/vim-toml'
 
 call plug#end()
 

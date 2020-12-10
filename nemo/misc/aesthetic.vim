@@ -8,6 +8,7 @@ if has('nvim-0.5')
 endif
 
 set termguicolors
+let g:one_allow_italics = 1 " I love italic for comments
 colorscheme one
 
 " Conceal char
