@@ -48,11 +48,11 @@ function! ChangeStatuslineColor()
     if (mode() =~# '\v(n|no)')
         exe 'hi! StatusLine ctermfg=008 guifg=fgcolor gui=None cterm=None'
     elseif (mode() =~# '\v(v|V)' || g:currentmode[mode()] ==# 'V·Block' || get(g:currentmode, mode(), '') ==# 't')
-        exe 'hi! StatusLine ctermfg=005 guifg=#00ff00 gui=None cterm=None'
+        exe 'hi! StatusLine ctermfg=005 guifg=#82CC6A gui=None cterm=None'
     elseif (mode() ==# 'i')
         exe 'hi! StatusLine ctermfg=004 guifg=#6CBCE8 gui=None cterm=None'
     else
-        exe 'hi! StatusLine ctermfg=006 guifg=orange gui=None cterm=None'
+        exe 'hi! StatusLine ctermfg=006 guifg=#ECBE7B gui=None cterm=None'
     endif
 
     return ''
