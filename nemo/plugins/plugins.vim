@@ -52,6 +52,9 @@ Plug 'junegunn/fzf.vim'
 " Snippets
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
+" Python
+Plug 'psf/black', { 'branch': 'stable' }
+
 " Colorizer
 if has('nvim-0.4')
     Plug 'norcalli/nvim-colorizer.lua'
