@@ -69,6 +69,8 @@ if has('nvim-0.5')
     Plug 'nvim-treesitter/nvim-treesitter', { 'commit': '3c07232'}
 endif
 
+Plug 'rktjmp/lush.nvim'
+
 call plug#end()
 
 " Automatically install missing plugins on startup
