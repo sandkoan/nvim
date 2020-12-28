@@ -69,7 +69,12 @@ if has('nvim-0.5')
     Plug 'nvim-treesitter/nvim-treesitter', { 'commit': '3c07232'}
 endif
 
+" Color theme
 Plug 'rktjmp/lush.nvim'
+
+if executable('nginx')
+    Plug 'chr4/nginx.vim'
+endif
 
 call plug#end()
 
