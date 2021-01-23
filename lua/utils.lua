@@ -1,3 +1,5 @@
+-- Inspired by https://teukka.tech/luanvim.html
+
 local M = {}
 local api = vim.api
 
