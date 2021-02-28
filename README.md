@@ -29,7 +29,7 @@ Feel free to make pull requests or open issues if you run into any issues.
 
 ## Dependencies
 ### Requirements
-* [Neovim](https://neovim.io/), ideally, the nightly version (v0.5) for lsp support and treesitter
+* [Neovim](https://neovim.io/), ideally, the nightly version (version >= 0.5) for lsp support and treesitter
 * [Curl](https://curl.haxx.se/) to install/upgrade vim-plug - should come installed with neovim
 
 ### Optional (Strongly Recommended)
