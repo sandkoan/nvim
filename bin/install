@@ -13,13 +13,13 @@ identify_distro() {
     if cat /etc/*-release | egrep -qi "manjaro|arch"
     then
         os="arch"
-        echo -e "Your ${GREEN}distribution${NC} has been identified to be an ${BLUE}Arch{NC} derivative."
+        echo -e "Your ${GREEN}distribution${NC} has been identified to be an ${BLUE}Arch${NC} derivative."
         echo -e "Installing ${RED}git${NC}..."
         sudo pacman -S git
     elif cat /etc/*-release | egrep -qi "debian|ubuntu"
     then
         os="debian"
-        echo -e "Your ${GREEN}distribution${NC} has been identified to be a ${BLUE}Debian{NC} derivative."
+        echo -e "Your ${GREEN}distribution${NC} has been identified to be a ${BLUE}Debian${NC} derivative."
         echo -e "Installing ${RED}git${NC}..."
         sudo apt install git
     else
