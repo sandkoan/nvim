@@ -1,3 +1,5 @@
+" Inspired by https://gist.github.com/ahmedelgabri/b9127dfe36ba86f4496c8c28eb65ef2b
+
 " Statusline & Tabline/Buffer line
 " Dynamically getting the fg/bg colors from the current colorscheme, returns hex which is enough for me to use in Neovim
 " Needs to figure out how to return cterm values too
